@@ -41,14 +41,26 @@ int main(int argc, const char * argv[]) {
     // 添加各个节点
     graph->addEdge(vector0, vector1); // 0--1
     graph->addEdge(vector0, vector3); // 0--3
+    graph->addEdge(vector1, vector0); // 1--0
     graph->addEdge(vector1, vector2); // 1--2
     graph->addEdge(vector1, vector4); // 1--4
+    //graph->addEdge(vector1, vector2); // 1--2
+    graph->addEdge(vector2, vector1); // 2--1
     graph->addEdge(vector2, vector5); // 2--5
+    graph->addEdge(vector3, vector0); // 3--0
     graph->addEdge(vector3, vector4); // 3--4
+    graph->addEdge(vector4, vector1); // 4--1
+    graph->addEdge(vector4, vector3); // 4--3
     graph->addEdge(vector4, vector5); // 4--5
     graph->addEdge(vector4, vector6); // 4--6
+    graph->addEdge(vector5, vector2); // 5--2
+    graph->addEdge(vector5, vector4); // 5--4
     graph->addEdge(vector5, vector7); // 5--7
+    //graph->addEdge(vector5, vector4); // 5--4
+    graph->addEdge(vector6, vector4); // 6--7
     graph->addEdge(vector6, vector7); // 6--7
+    graph->addEdge(vector7, vector5); // 7--5
+    graph->addEdge(vector7, vector6); // 7--6
     
     graph->show();
     
