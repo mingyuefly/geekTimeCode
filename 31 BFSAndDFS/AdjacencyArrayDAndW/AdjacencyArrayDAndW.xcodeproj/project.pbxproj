@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AA19E3A622729780004AE0E3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = AA19E3A522729780004AE0E3 /* main.c */; };
+		AAD85F232277E8F5004F5700 /* Dfs.c in Sources */ = {isa = PBXBuildFile; fileRef = AAD85F222277E8F5004F5700 /* Dfs.c */; };
+		AAD85F262277E913004F5700 /* Bfs.c in Sources */ = {isa = PBXBuildFile; fileRef = AAD85F252277E913004F5700 /* Bfs.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		AA19E3A222729780004AE0E3 /* AdjacencyArrayDAndW */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AdjacencyArrayDAndW; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA19E3A522729780004AE0E3 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		AAD85F212277E8F5004F5700 /* Dfs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dfs.h; sourceTree = "<group>"; };
+		AAD85F222277E8F5004F5700 /* Dfs.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Dfs.c; sourceTree = "<group>"; };
+		AAD85F242277E913004F5700 /* Bfs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bfs.h; sourceTree = "<group>"; };
+		AAD85F252277E913004F5700 /* Bfs.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Bfs.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				AA19E3A522729780004AE0E3 /* main.c */,
+				AAD85F212277E8F5004F5700 /* Dfs.h */,
+				AAD85F222277E8F5004F5700 /* Dfs.c */,
+				AAD85F242277E913004F5700 /* Bfs.h */,
+				AAD85F252277E913004F5700 /* Bfs.c */,
 			);
 			path = AdjacencyArrayDAndW;
 			sourceTree = "<group>";
@@ -118,7 +128,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAD85F262277E913004F5700 /* Bfs.c in Sources */,
 				AA19E3A622729780004AE0E3 /* main.c in Sources */,
+				AAD85F232277E8F5004F5700 /* Dfs.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
