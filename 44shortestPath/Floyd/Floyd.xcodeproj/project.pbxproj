@@ -25,6 +25,8 @@
 /* Begin PBXFileReference section */
 		929B04072279E9BE0037644E /* Floyd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Floyd; sourceTree = BUILT_PRODUCTS_DIR; };
 		929B040A2279E9BE0037644E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		929B0452227B1FCD0037644E /* WechatIMG68.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WechatIMG68.jpeg; sourceTree = "<group>"; };
+		929B0453227B1FCD0037644E /* WechatIMG67.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WechatIMG67.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				929B040A2279E9BE0037644E /* main.c */,
+				929B0453227B1FCD0037644E /* WechatIMG67.jpeg */,
+				929B0452227B1FCD0037644E /* WechatIMG68.jpeg */,
 			);
 			path = Floyd;
 			sourceTree = "<group>";
