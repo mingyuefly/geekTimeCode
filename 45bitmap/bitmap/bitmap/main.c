@@ -11,10 +11,10 @@
 
 int main(int argc, const char * argv[]) {
     
-    int nbits = 10000;
+    int nbits = 1000000;
     Bitmap bitmap;
     initBitmap(&bitmap, nbits);
-    int bytes[10000] = {0};
+    int bytes[1000000] = {0};
     (&bitmap)->bytes = bytes;
     
     int k;
