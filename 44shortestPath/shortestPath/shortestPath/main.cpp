@@ -70,6 +70,8 @@ int main(int argc, const char * argv[]) {
     
     graph->show();
     
+    graph->dijkstra(vector0);
+    graph->dijkstra(vector1);
     
     
     delete graph;

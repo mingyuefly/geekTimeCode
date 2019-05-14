@@ -10,6 +10,7 @@
 #define Graph_hpp
 
 #include <stdio.h>
+#include <map>
 
 class GraphVector {
 public:
@@ -74,6 +75,8 @@ public:
     ~Graph();
     void show();
     void addEdge(GraphVector * s, GraphVector * t, int wp);
+    void dijkstra(GraphVector * start);
+    void printDistanceMap(map <int, int> distanceMap);
 };
 
 Graph::Graph(){
@@ -110,6 +113,59 @@ void Graph::show(){
         }
         cout << endl;
     }
+}
+
+void Graph::dijkstra(GraphVector * start)
+{
+    int max = 999999;
+    // 创建距离start顶点的距离hash表
+    map <int, int> distanceMap;
+    for (int i = 0; i < v; i++) {
+        distanceMap[i] = max;
+    }
+    for (int i = 0; i < adj[start->vector]->size(); i++) {
+        Edge * edge = adj[start->vector]->get(i);
+        distanceMap[edge->tid->vector] = edge->weight;
+    }
+    distanceMap[start->vector] = 0;
+    //printDistanceMap(distanceMap);
+    
+    bool book[100] = {false};
+    book[start->vector] = true;
+    for (int i = 0; i < v; i++) {
+        // 找到距离start顶点最近距离的点
+        int min = max;
+        int nearest = 0;
+        for (int i = 0; i < v; i++) {
+            if (i != start->vector && book[i] == false && distanceMap[i] < min) {
+                min = distanceMap[i];
+                nearest = i;
+            }
+        }
+        book[nearest] = true;
+        
+        // 松弛
+        for (int i = 0; i < adj[nearest]->size(); i++) {
+            Edge * edge = adj[nearest]->get(i);
+            if (edge->tid->vector != start->vector) {
+                if (distanceMap[edge->tid->vector] > (distanceMap[nearest] + edge->weight)) {
+                    distanceMap[edge->tid->vector] = distanceMap[nearest] + edge->weight;
+                }
+            }
+        }
+        //printDistanceMap(distanceMap);
+    }
+    
+    printDistanceMap(distanceMap);
+}
+
+void Graph::printDistanceMap(map <int, int> distanceMap)
+{
+    // 打印distanceMap
+    for (int i = 0; i < v; i++) {
+        cout << " " << distanceMap[i];
+    }
+    cout << endl;
 }
 
 
