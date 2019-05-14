@@ -69,6 +69,9 @@ private:
     };
     int v; // 顶点个数
     LinkedList<Edge> *adj[100];
+    void printDistanceMap(map <int, int> distanceMap);
+    void printprevMap(map <int, int> prevMap, GraphVector * startVector, GraphVector * endVector);
+    void recurPrint(map <int, int> prevMap, int start, int end);
 public:
     Graph();
     Graph(int vp);
@@ -76,7 +79,6 @@ public:
     void show();
     void addEdge(GraphVector * s, GraphVector * t, int wp);
     void dijkstra(GraphVector * start);
-    void printDistanceMap(map <int, int> distanceMap);
 };
 
 Graph::Graph(){
@@ -130,6 +132,12 @@ void Graph::dijkstra(GraphVector * start)
     distanceMap[start->vector] = 0;
     //printDistanceMap(distanceMap);
     
+    // 创建前置hash表
+    map <int, int> prevMap;
+    for (int i = 0; i < v; i++) {
+        prevMap[i] = start->vector;
+    }
+    
     bool book[100] = {false};
     book[start->vector] = true;
     for (int i = 0; i < v; i++) {
@@ -150,6 +158,7 @@ void Graph::dijkstra(GraphVector * start)
             if (edge->tid->vector != start->vector) {
                 if (distanceMap[edge->tid->vector] > (distanceMap[nearest] + edge->weight)) {
                     distanceMap[edge->tid->vector] = distanceMap[nearest] + edge->weight;
+                    prevMap[edge->tid->vector] = edge->sid->vector;
                 }
             }
         }
@@ -157,6 +166,7 @@ void Graph::dijkstra(GraphVector * start)
     }
     
     printDistanceMap(distanceMap);
+    printprevMap(prevMap, start, new GraphVector(5));
 }
 
 void Graph::printDistanceMap(map <int, int> distanceMap)
@@ -166,6 +176,29 @@ void Graph::printDistanceMap(map <int, int> distanceMap)
         cout << " " << distanceMap[i];
     }
     cout << endl;
+}
+
+void Graph::printprevMap(map <int, int> prevMap, GraphVector * startVector, GraphVector * endVector)
+{
+    // 打印prevMap
+    for (int i = 0; i < v; i++) {
+        cout << " " << prevMap[i];
+    }
+    cout << endl;
+    recurPrint(prevMap, startVector->vector, endVector->vector);
+    cout << " " << endVector->vector;
+    cout << endl;
+    
+    delete endVector;
+}
+
+void Graph:: recurPrint(map <int, int> prevMap, int start, int end)
+{
+    if (end == start) {
+        return;
+    }
+    recurPrint(prevMap, start, prevMap[end]);
+    cout << " " << prevMap[end];
 }
 
 
