@@ -2,7 +2,7 @@
 //  Heap.h
 //  heap
 //
-//  Created by gomeguomingyue on 2019/4/24.
+//  Created by Gguomingyue on 2019/4/24.
 //  Copyright © 2019 Gmingyue. All rights reserved.
 //
 
