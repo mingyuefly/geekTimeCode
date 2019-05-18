@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AAE289D7228FB6030071DC12 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = AAE289D6228FB6030071DC12 /* main.c */; };
+		AAE289DF228FF4520071DC12 /* heapC.c in Sources */ = {isa = PBXBuildFile; fileRef = AAE289DE228FF4520071DC12 /* heapC.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		AAE289D3228FB6030071DC12 /* heapC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = heapC; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE289D6228FB6030071DC12 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		AAE289DD228FF4520071DC12 /* heapC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = heapC.h; sourceTree = "<group>"; };
+		AAE289DE228FF4520071DC12 /* heapC.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = heapC.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				AAE289D6228FB6030071DC12 /* main.c */,
+				AAE289DD228FF4520071DC12 /* heapC.h */,
+				AAE289DE228FF4520071DC12 /* heapC.c */,
 			);
 			path = heapC;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE289D7228FB6030071DC12 /* main.c in Sources */,
+				AAE289DF228FF4520071DC12 /* heapC.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

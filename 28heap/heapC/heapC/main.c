@@ -7,99 +7,8 @@
 //
 
 #include <stdio.h>
-
-int h[101], n;
-
-/*
- 交换函数
- */
-void swap(int x, int y)
-{
-    int temp;
-    temp = h[x];
-    h[x] = h[y];
-    h[y] = temp;
-}
-
-/*
- 向下调整
- */
-void siftdown(int i)
-{
-    int flag = 0, temp = 0;
-    while (i * 2 <= n && flag == 0) {
-        if (h[i] < h[i * 2]) {
-            temp = i * 2;
-        } else {
-            temp = i;
-        }
-        if ((i * 2 + 1) <= n) {
-            if (h[temp] < h[i * 2 + 1]) {
-                temp = i * 2 + 1;
-            }
-        }
-        if (temp == i) {
-            flag = 1;
-        } else {
-            swap(temp, i);
-            i = temp;
-        }
-    }
-}
-
-/*
- 向上调整
- */
-void siftup(int i)
-{
-    if (i == 1) {
-        return;
-    }
-    int flag = 0;
-    while (i != 1 && flag == 0) {
-        if (h[i] < h[i / 2]) {
-            swap(i, i / 2);
-        } else {
-            flag = 1;
-        }
-        i = i / 2;
-    }
-}
-
-/*
- 删除最大元素
- */
-int deleteMax()
-{
-    int t = h[1];
-    h[1] = h[n];
-    n--;
-    siftdown(n);
-    return t;
-}
-
-/*
- 建堆
- */
-void create()
-{
-    for (int i = n / 2; i > 0; i--) {
-        siftdown(i);
-    }
-}
-
-/*
- 堆排序
- */
-void heapSort()
-{
-    while (n > 1) {
-        swap(1, n);
-        n--;
-        siftdown(1);
-    }
-}
-
+#include "heapC.h"
+#include <stdbool.h>
 
 int main(int argc, const char * argv[]) {
     
@@ -117,19 +26,45 @@ int main(int argc, const char * argv[]) {
         scanf("%d", &h[i]);
     }
     
-    create();
+    createC();
     
     for (int i = 1; i <= n; i++) {
         printf(" %d ", h[i]);
     }
     printf("\n");
     
-    heapSort();
+    while (true) {
+        int temp;
+        printf("请插入：\n");
+        scanf("%d", &temp);
+        if (temp == 999999) {
+            break;
+        }
+        insert(temp);
+    }
+    
+    for (int i = 1; i <= n; i++) {
+        printf(" %d ", h[i]);
+    }
+    printf("\n");
+    
+    for (int i = 0; i < 2; i++) {
+        int out = outQueue();
+        printf("out = %d\n", out);
+        for (int i = 1; i <= n; i++) {
+            printf(" %d ", h[i]);
+        }
+        printf("\n");
+    }
+    
+    heapSortC();
     
     for (int i = 1; i <= num; i++) {
         printf(" %d ", h[i]);
     }
     printf("\n");
+    
+    getchar();getchar();
     
     return 0;
 }
