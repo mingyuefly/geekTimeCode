@@ -119,3 +119,15 @@ int outQueue(void)
 {
     return deleteMaxC();
 }
+
+/*
+ 更新
+ */
+void updateQueue(int index, int x)
+{
+    if (index > n || index <= 0) {
+        return;
+    }
+    h[index] = x;
+    siftupC(index);
+}

@@ -55,6 +55,11 @@ void insert(int x);
  */
 int outQueue(void);
 
+/*
+ 更新
+ */
+void updateQueue(int index, int x);
+
 
 
 #endif /* heap_h */

@@ -57,6 +57,17 @@ int main(int argc, const char * argv[]) {
         printf("\n");
     }
     
+    updateQueue(6, 1000);
+    for (int i = 1; i <= n; i++) {
+        printf(" %d ", h[i]);
+    }
+    printf("\n");
+    updateQueue(8, 55);
+    for (int i = 1; i <= n; i++) {
+        printf(" %d ", h[i]);
+    }
+    printf("\n");
+    
     heapSortC();
     
     for (int i = 1; i <= num; i++) {
