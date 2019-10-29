@@ -13,11 +13,15 @@ int main(int argc, const char * argv[]) {
     
     //string txt = "abcacabdc";
     //string pattern = "abd";
-    //string txt = "aaabaaabaaabaaaab";
-    //string pattern = "aaaa";
+    string txt = "aaabaaabaaabaaaab";
+    string pattern = "aaaa";
+    //string txt = "abcacabcbcbacabc";
+    //string txt = "abcacabcbcabccabc";
+    //string txt = "abcadjffdkfjcabcabcabccabc";
+    //string pattern = "cabcab";
     // 单纯使用坏字符不可行示例
-    string txt = "aaaaaaaaaaaaaaaa";
-    string pattern = "baaa";
+    //string txt = "aaaaaaaaaabaaaaaa";
+    //string pattern = "baaa";
     int match = boyerMoore(txt, pattern);
     if (match == txt.length()) {
         cout << "未匹配" << endl;
