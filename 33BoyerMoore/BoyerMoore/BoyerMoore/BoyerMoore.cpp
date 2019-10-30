@@ -100,6 +100,7 @@ int boyerMoore(string txt, string pattern)
         if (j < M - 1) {
             y = moveByGS(M, j, suffix, prefix);
         }
+        
         if (x > y) {
             i = i + x;
         } else {
