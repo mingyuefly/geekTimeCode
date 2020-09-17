@@ -84,10 +84,13 @@ int check_pos_valid(int row, int column)//检查是否存在有多个皇后在�
     int leftup = column - 1, rightup = column + 1;
     for (int i = row - 1; i >= 0; --i) {
         times++;
+        // 判断竖线上方
         if (result[i] == column) return false;
+        // 判断左上角
         if (leftup >= 0) {
             if (result[i] == leftup) return false;
         }
+        // 判断右上角
         if (rightup >= 0) {
             if (result[i] == rightup) return false;
         }
