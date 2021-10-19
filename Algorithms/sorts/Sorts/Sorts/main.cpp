@@ -54,7 +54,7 @@ private:
     static bool less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
     }
-    static void exch(vector<Comparable> &a, int i, int j) {
+    static void exch(vector<Comparable> &a, size_t i, size_t j) {
         Comparable tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
@@ -210,6 +210,71 @@ private:
     }
 };
 
+class Quick {
+public:
+    static void sort(vector<Comparable> &a) {
+        size_t count = a.size();
+        sort(a, 0, count - 1);
+    }
+    static void show(vector<Comparable> a) {
+        size_t count = a.size();
+        for (int i = 0; i < count; i++) {
+            cout << a.at(i).value << ' ';
+        }
+        cout << endl;
+    }
+    static bool isSorted(vector<Comparable> a) {
+        size_t count = a.size();
+        for (int i = 1; i < count; i++) {
+            if (less(a[i], a[i - 1])) {
+                return false;
+            }
+        }
+        return true;
+    }
+private:
+    static void sort(vector<Comparable> &a, size_t lo, size_t hi) {
+        if (hi <= lo) {
+            return;
+        }
+        size_t mid = partition(a, lo, hi);
+        sort(a, lo, mid - 1);
+        sort(a, mid + 1, hi);
+    }
+    static size_t partition(vector<Comparable> &a, size_t lo, size_t hi) {
+        size_t i = lo;
+        size_t j = hi + 1;
+        Comparable midValue = a[lo];
+        while (true) {
+            while (less(a[++i], midValue)) {
+                if (i == hi) {
+                    break;
+                }
+            }
+            while (less(midValue, a[--j])) {
+                if (j == lo) {
+                    break;
+                }
+            }
+            if (i >= j) {
+                break;
+            }
+            exch(a, i, j);
+        }
+        exch(a, lo, j);
+        return j;
+    }
+    static bool less(Comparable v, Comparable w) {
+        return v.compareTo(w) < 0;
+    }
+    static void exch(vector<Comparable> &a, size_t i, size_t j) {
+        Comparable tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+    }
+};
+
+
 int main(int argc, const char * argv[]) {
     vector<int> a = {5, 3, 1, 10, 2, 18, 38, 17, 16, 25};
     vector<Comparable> params;
@@ -246,11 +311,20 @@ int main(int argc, const char * argv[]) {
     }
      */
     
+    /*
     Merge::show(params);
     Merge::sort(params);
     bool isSorted = Merge::isSorted(params);
     if (isSorted) {
         Merge::show(params);
+    }
+     */
+    
+    Quick::show(params);
+    Quick::sort(params);
+    bool isSorted = Quick::isSorted(params);
+    if (isSorted) {
+        Quick::show(params);
     }
     
     return 0;
