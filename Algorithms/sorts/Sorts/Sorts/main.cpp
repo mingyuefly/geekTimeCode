@@ -274,7 +274,6 @@ private:
     }
 };
 
-
 int main(int argc, const char * argv[]) {
     vector<int> a = {5, 3, 1, 10, 2, 18, 38, 17, 16, 25};
     vector<Comparable> params;
