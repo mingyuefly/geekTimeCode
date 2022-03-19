@@ -94,6 +94,81 @@ private:
     }
 };
 
+class MinPQ {
+private:
+    vector<Comparable > *pq;
+    size_t N;
+public:
+    MinPQ(size_t maxN) {
+        pq = new vector<Comparable>(maxN + 1);
+        for (int i = 0; i < maxN + 1; i++) {
+            Comparable c;
+            c.value = 0;
+            pq->at(i) = c;
+        }
+        N = 0;
+        cout << "pq size = " << pq->size() << endl;
+    }
+    ~MinPQ() {
+        cout << "~MinPQ()" << endl;
+        delete pq;
+    }
+    bool isEmpty() {
+        return N == 0;
+    }
+    size_t size() {
+        return N;
+    }
+    void insert(Comparable v) {
+        pq->at(++N) = v;
+        swim(N);
+    }
+    Comparable delMin() {
+        Comparable min = pq->at(1);
+        exch(1, N--);
+        Comparable c;
+        c.value = 0;
+        pq->at(N + 1) = c;
+        sink(1);
+        return min;
+    }
+    void show() {
+        size_t count = pq->size();
+        for (int i = 1; i < count; i++) {
+            cout << pq->at(i).value << ' ';
+        }
+        cout << endl;
+    }
+private:
+    bool more(size_t i, size_t j) {
+        return pq->at(i).compareTo(pq->at(j)) > 0;
+    }
+    void exch(size_t i, size_t j) {
+        Comparable tmp = pq->at(i);
+        pq->at(i) = pq->at(j);
+        pq->at(j) = tmp;
+    }
+    void swim(size_t k) {
+        while (k > 1 && more(k / 2, k)) {
+            exch(k / 2, k);
+            k = k / 2;
+        }
+    }
+    void sink(size_t k) {
+        while (2 * k <= N) {
+            size_t j = 2 * k;
+            if (j < N && more(j, j + 1)) {
+                j++;
+            }
+            if (!more(k, j)) {
+                break;
+            }
+            exch(k, j);
+            k = j;
+        }
+    }
+};
+
 int main(int argc, const char * argv[]) {
     vector<int> a = {5, 3, 1, 10, 2, 18, 38, 17, 16, 25};
     vector<Comparable> params;
@@ -113,6 +188,23 @@ int main(int argc, const char * argv[]) {
     maxPQ.show();
     maxPQ.delMax();
     maxPQ.show();
+    
+    cout << endl;
+    
+    MinPQ minPQ = MinPQ(a.size());
+    minPQ.show();
+    for (int i = 0; i < a.size(); i++) {
+        minPQ.insert(params[i]);
+    }
+    minPQ.show();
+    minPQ.delMin();
+    minPQ.show();
+    minPQ.delMin();
+    minPQ.show();
+    Comparable c1;
+    c1.value = 1;
+    minPQ.insert(c1);
+    minPQ.show();
     
     return 0;
 }
