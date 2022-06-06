@@ -5,6 +5,16 @@
 //  Created by gmy on 2022/6/3.
 //
 
+/**
+ 5 5
+ 1 2
+ 1 3
+ 1 5
+ 2 4
+ 3 5
+ 1 2 4 3 5 
+ */
+
 #include <stdio.h>
 
 int book[101], sum, n, e[101][101];
