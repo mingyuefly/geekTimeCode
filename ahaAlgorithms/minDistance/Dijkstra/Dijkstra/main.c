@@ -15,7 +15,7 @@
  4 5 13
  4 6 15
  5 6 4
- 0 1 8 4 13 17 66
+ 0 1 8 4 13 17
  */
 
 #include <stdio.h>
@@ -60,8 +60,8 @@ int main(int argc, const char * argv[]) {
         // 找到离1号顶点最近的顶点
         min = inf;
         for (j = 1; j <= n; j++) {
-            if (book[j] == 0 && e[i][j] < min) {
-                min = e[i][j];
+            if (book[j] == 0 && dis[j] < min) {
+                min = dis[j];
                 u = j;
             }
         }
