@@ -20,7 +20,7 @@
 
 int main(int argc, const char * argv[]) {
     
-    int n, m, i, j, k;
+    int n, m, i, k;
     int u[8], v[8], w[8];
     // first要比n的最大值大1，next要比m最大值大1
     int first[6], next[8];
