@@ -18,18 +18,26 @@ class Evaluate {
     deinit {
         print("deinit")
     }
-    func compute(_ str: String) -> Double? {
+    func compute(_ str: String) -> (Double, String)? {
         let evaluateStr = str.replacingOccurrences(of: " ", with: "")
         if (evaluateStr.isEmpty) {
-            return 0
+            return (0.0, "算术不合法")
         }
         
         var vals = Stack<Double>()
-        var ops = Stack<Character>()
+        var ops = Stack<String>()
         var tmpString = String()
-        let verityArray:[Character] = ["(", "+", "-", "*", "/", ")"]
-        
-        evaluateStr.forEach { s in
+        var sqrtString = String()
+        let verityArray:[String] = ["(", "+", "-", "*", "/", ")"]
+        let verityArray1:[String] = ["s", "q", "r", "t"]
+        let verityArray2:[String] = ["s", "q", "r", "t", "(", "+", "-", "*", "/", ")", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."]
+//        var success:Bool = false
+        evaluateStr.forEach { s1 in
+//            if !verityArray2.contains(s) {
+////                success = false
+//                return
+//            }
+            let s = String(s1)
             if verityArray.contains(s) {
                 if tmpString.count > 0 {
                     let num = (tmpString as NSString).doubleValue
@@ -41,32 +49,39 @@ class Evaluate {
             if s == "+" || s == "-" || s == "*" || s == "/" {
                 ops.push(s)
             } else if s == ")" {
-                if let s = ops.pop(), let v0 = vals.pop(), let v1 = vals.pop() {
-                    
-                    if (s == "+") {
+                if let sign = ops.pop(), let v0 = vals.pop() {
+                    if sign == "+", let v1 = vals.pop()  {
                         vals.push(v1 + v0)
-                        
-                    }
-                    else if (s == "-") {
+                    } else if sign == "-", let v1 = vals.pop() {
                         vals.push(v1 - v0)
-                        
-                    }
-                    else if (s == "*") {
+                    } else if sign == "*", let v1 = vals.pop() {
                         vals.push(v1 * v0)
-                        
-                    }
-                    else if (s == "/") {
+                    } else if sign == "/", let v1 = vals.pop() {
                         vals.push(v1 / v0)
-                        
+                    }
+                    else if (sign == "sqrt") {
+                        vals.push(sqrt(v0))
                     }
                 }
             } else if s == "(" {
                 
-            } else {
+            }
+            else if verityArray1.contains(s) {
+                sqrtString.append(s)
+                if sqrtString == "sqrt" {
+                    ops.push(sqrtString)
+                    sqrtString = ""
+                }
+            }
+            else {
                 tmpString.append(s)
             }
         }
-        return vals.top() ?? nil
+        if let num = vals.top() {
+            return (num, "运算成功")
+        } else {
+            return (0.0, "算术不合法")
+        }
     }
 };
 
