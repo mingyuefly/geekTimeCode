@@ -33,10 +33,12 @@ class Evaluate {
         let verityArray2:[String] = ["s", "q", "r", "t", "(", "+", "-", "*", "/", ")", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."]
 //        var success:Bool = false
         evaluateStr.forEach { s1 in
+            
 //            if !verityArray2.contains(s) {
 ////                success = false
 //                return
 //            }
+            
             let s = String(s1)
             if verityArray.contains(s) {
                 if tmpString.count > 0 {
@@ -58,22 +60,19 @@ class Evaluate {
                         vals.push(v1 * v0)
                     } else if sign == "/", let v1 = vals.pop() {
                         vals.push(v1 / v0)
-                    }
-                    else if (sign == "sqrt") {
+                    } else if (sign == "sqrt") {
                         vals.push(sqrt(v0))
                     }
                 }
             } else if s == "(" {
                 
-            }
-            else if verityArray1.contains(s) {
+            } else if verityArray1.contains(s) {
                 sqrtString.append(s)
                 if sqrtString == "sqrt" {
                     ops.push(sqrtString)
                     sqrtString = ""
                 }
-            }
-            else {
+            } else {
                 tmpString.append(s)
             }
         }

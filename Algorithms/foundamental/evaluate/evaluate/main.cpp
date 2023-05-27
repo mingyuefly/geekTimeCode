@@ -17,34 +17,43 @@ public:
     Evaluate() {
         
     }
-    Evaluate(string str) {
-        evaluateStr = str;
-    }
+//    Evaluate(string str) {
+//        evaluateStr = str;
+//    }
     ~Evaluate() {
         cout << "~Evaluate()" << endl;
     }
-    double compute() {
-        if (evaluateStr.size() == 0) {
-            return 0;
-        }
-        
-        return 0;
-    }
+//    double compute() {
+//        if (evaluateStr.size() == 0) {
+//            return 0;
+//        }
+//
+//        return 0;
+//    }
     double compute(string str) {
         string evaluateStr = str;
+        // 去除空格
         trim(evaluateStr);
         if (evaluateStr.size() == 0) {
             return 0;
         }
+        
         size_t size = evaluateStr.size();
         int index = 0;
         vector<char> verifyArray = {'(', '+', '-', '*', '/', ')'};
+        vector<char> verifyArray1 = {'s', 'q', 'r', 't'};
         string tmpString;
+        string sqrtString;
         stack<double> vals;
-        stack<char> ops;
+        stack<string> ops;
+        
         while (index < size) {
-            char s = evaluateStr[index];
-            if (find(verifyArray.begin(), verifyArray.end(), s) != verifyArray.end()) {
+            char s1 = evaluateStr[index];
+            string s;
+            s.push_back(s1);
+            
+            // 将数字压栈
+            if (find(verifyArray.begin(), verifyArray.end(), s1) != verifyArray.end()) {
                 if (tmpString.size() > 0) {
 //                    int num = stoi(tmpString);
                     double num = stod(tmpString);
@@ -52,24 +61,44 @@ public:
                     tmpString = "";
                 }
             }
-            if (s == '(');
-            else if (s == '+') ops.push(s);
-            else if (s == '-') ops.push(s);
-            else if (s == '*') ops.push(s);
-            else if (s == '/') ops.push(s);
-            else if (s == ')') {
-                char s = ops.top();
+            
+            if (s == "(");
+            else if (s == "+") ops.push(s);
+            else if (s == "-") ops.push(s);
+            else if (s == "*") ops.push(s);
+            else if (s == "/") ops.push(s);
+            else if (s == ")") {
+                string s2 = ops.top();
                 ops.pop();
                 double v = vals.top();
                 vals.pop();
-                if (s == '+') v = vals.top() + v;
-                else if (s == '-') v = vals.top() - v;
-                else if (s == '*') v = vals.top() * v;
-                else if (s == '/') v = vals.top() / v;
-                vals.pop();
+                if (s2 == "+") v = vals.top() + v;
+                else if (s2 == "-") {
+                    v = vals.top() - v;
+                    vals.pop();
+                }
+                else if (s2 == "*") {
+                    v = vals.top() * v;
+                    vals.pop();
+                }
+                else if (s2 == "/") {
+                    v = vals.top() / v;
+                    vals.pop();
+                }
+                else if (s2 == "sqrt") {
+                    v = sqrt(v);
+                }
                 vals.push(v);
             }
-            else tmpString.push_back(s);
+            else if (find(verifyArray1.begin(), verifyArray1.end(), s1) != verifyArray1.end()) {
+                // 将sqrt压栈
+                sqrtString.push_back(s1);
+                if (sqrtString.compare("sqrt") == 0) {
+                    ops.push("sqrt");
+                    sqrtString = "";
+                }
+            }
+            else tmpString.push_back(s1);
 //            else vals.push(int(s) - 48);
             index++;
         }
@@ -90,11 +119,15 @@ private:
 
 int main(int argc, const char * argv[]) {
     
-    string str = "(1.2 + ((2.3 * 3.4) * (4.5 * 5.6)))";
     Evaluate evaluate = Evaluate();
-//    cout << evaluate.compute(str) << endl;
+    
+    string str = "(1.2 + ((2.3 * 3.4) * (4.5 * 5.6)))";
     cout << evaluate.compute(str) << endl;
     cout << 1.2 + ((2.3 * 3.4) * (4.5 * 5.6)) << endl;
+    
+    string str1 = "(1.2 + ((2.3 * 3.4) * sqrt(4.5)))";
+    cout << evaluate.compute(str1) << endl;
+    cout << 1.2 + ((2.3 * 3.4) * sqrt(4.5)) << endl;
     
     return 0;
 }

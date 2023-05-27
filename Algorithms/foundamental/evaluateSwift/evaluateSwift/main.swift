@@ -18,6 +18,11 @@ let str2: String = "(12.3 + ((23.4 * 34.5) * sqrt(2)))"
 print(evaluate.compute(str2) ?? 0)
 print(12.3 + ((23.4 * 34.5) * sqrt(2)))
 
+let str3: String = "((12.3 + ((23.4 * 34.5) * (45.6 * 96.7)))) + 3)"
+print(evaluate.compute(str3) ?? 0)
+print(12.3 + ((23.4 * 34.5) * (45.6 * 96.7)) + 3)
+
+
 print(sqrt(13))
 
 func tupleTest() -> (Double, String)? {
