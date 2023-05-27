@@ -12,9 +12,9 @@ class Evaluate {
     init() {
         
     }
-    init(str: String) {
-        evaluateStr = str
-    }
+//    init(str: String) {
+//        evaluateStr = str
+//    }
     deinit {
         print("deinit")
     }
