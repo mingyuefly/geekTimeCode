@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include "Dlist.h"
 
-int main() {
+int main(void) {
     
     stDlistHead dlist = {0};
     stDlistNode * pNode = NULL;

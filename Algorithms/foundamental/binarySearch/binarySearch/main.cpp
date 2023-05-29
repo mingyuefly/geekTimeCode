@@ -46,7 +46,7 @@ int main(int argc, const char * argv[]) {
     BinarySearch binarySearch;
     vector<int> arr = {1, 3, 4, 7, 8, 22, 31, 45, 65, 99, 123};
     cout << binarySearch.seartch(4, arr) << endl;
-    cout << binarySearch.seartch(99, arr) << endl;
+    cout << binarySearch.seartch(5, arr) << endl;
     cout << binarySearch.seartch(8, arr) << endl;
     cout << binarySearch.seartch(10, arr) << endl;
     

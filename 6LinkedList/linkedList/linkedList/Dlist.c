@@ -7,6 +7,7 @@
 //
 
 #include "Dlist.h"
+#include <string.h>
 
 
 // 创建链表
