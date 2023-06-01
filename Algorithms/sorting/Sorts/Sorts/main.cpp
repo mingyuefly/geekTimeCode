@@ -12,21 +12,23 @@
 
 using namespace std;
 
-typedef struct Comparable {
+template <typename T>
+struct Comparable {
 public:
-    int value;
+    T value;
     int compareTo(Comparable a) {
         return value - a.value;
     }
-}Comparable;
+};
 
+template <class T>
 class Selection {
 public:
-    static void sort(vector<Comparable> &a) {
+    static void sort(vector<Comparable<T>> &a) {
         size_t count = a.size();
-        for (int i = 0; i < count; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < count; j++) {
+        for (uint32_t i = 0; i < count; i++) {
+            uint32_t minIndex = i;
+            for (uint32_t j = i + 1; j < count; j++) {
                 if (less(a[j], a[minIndex])) {
                     minIndex = j;
                 }
@@ -34,16 +36,16 @@ public:
             exch(a, i, minIndex);
         }
     }
-    static void show(vector<Comparable> a) {
+    static void show(vector<Comparable<T>> a) {
         size_t count = a.size();
-        for (int i = 0; i < count; i++) {
+        for (uint32_t i = 0; i < count; i++) {
             cout << a.at(i).value << ' ';
         }
         cout << endl;
     }
-    static bool isSorted(vector<Comparable> a) {
+    static bool isSorted(vector<Comparable<T>> a) {
         size_t count = a.size();
-        for (int i = 1; i < count; i++) {
+        for (uint32_t i = 1; i < count; i++) {
             if (less(a[i], a[i - 1])) {
                 return false;
             }
@@ -51,36 +53,37 @@ public:
         return true;
     }
 private:
-    static bool less(Comparable v, Comparable w) {
+    static bool less(Comparable<T> v, Comparable<T> w) {
         return v.compareTo(w) < 0;
     }
-    static void exch(vector<Comparable> &a, size_t i, size_t j) {
-        Comparable tmp = a[i];
+    static void exch(vector<Comparable<T>> &a, uint32_t i, uint32_t j) {
+        Comparable<T> tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
     }
 };
 
+template <class T>
 class Insertion {
 public:
-    static void sort(vector<Comparable> &a) {
+    static void sort(vector<Comparable<T>> &a) {
         size_t count = a.size();
-        for (int i = 1; i < count; i++) {
+        for (uint32_t i = 1; i < count; i++) {
             for (int j = i; j > 0 && less(a[j], a[j - 1]); j--) {
                 exch(a, j, j - 1);
             }
         }
     }
-    static void show(vector<Comparable> a) {
+    static void show(vector<Comparable<T>> a) {
         size_t count = a.size();
-        for (int i = 0; i < count; i++) {
+        for (uint32_t i = 0; i < count; i++) {
             cout << a.at(i).value << ' ';
         }
         cout << endl;
     }
-    static bool isSorted(vector<Comparable> a) {
+    static bool isSorted(vector<Comparable<T>> a) {
         size_t count = a.size();
-        for (int i = 1; i < count; i++) {
+        for (uint32_t i = 1; i < count; i++) {
             if (less(a[i], a[i - 1])) {
                 return false;
             }
@@ -88,27 +91,28 @@ public:
         return true;
     }
 private:
-    static bool less(Comparable v, Comparable w) {
+    static bool less(Comparable<T> v, Comparable<T> w) {
         return v.compareTo(w) < 0;
     }
-    static void exch(vector<Comparable> &a, int i, int j) {
-        Comparable tmp = a[i];
+    static void exch(vector<Comparable<T>> &a, uint32_t i, uint32_t j) {
+        Comparable<T> tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
     }
     
 };
 
+template <class T>
 class Shell {
     public:
-    static void sort(vector<Comparable> &a) {
+    static void sort(vector<Comparable<T>> &a) {
         size_t count = a.size();
-        int h = 1;
+        uint32_t h = 1;
         while (h < count / 3) {
             h = 3 * h + 1;
         }
         while (h >= 1) {
-            for (int i = h; i < count; i++) {
+            for (uint32_t i = h; i < count; i++) {
                 for (int j = i; j > 0 && less(a[j], a[j - h]); j -= h) {
                     exch(a, j, j - h);
                 }
@@ -116,16 +120,16 @@ class Shell {
             h = h / 3;
         }
     }
-    static void show(vector<Comparable> a) {
+    static void show(vector<Comparable<T>> a) {
         size_t count = a.size();
-        for (int i = 0; i < count; i++) {
+        for (uint32_t i = 0; i < count; i++) {
             cout << a.at(i).value << ' ';
         }
         cout << endl;
     }
-    static bool isSorted(vector<Comparable> a) {
+    static bool isSorted(vector<Comparable<T>> a) {
         size_t count = a.size();
-        for (int i = 1; i < count; i++) {
+        for (uint32_t i = 1; i < count; i++) {
             if (less(a[i], a[i - 1])) {
                 return false;
             }
@@ -133,39 +137,35 @@ class Shell {
         return true;
     }
 private:
-    static bool less(Comparable v, Comparable w) {
+    static bool less(Comparable<T> v, Comparable<T> w) {
         return v.compareTo(w) < 0;
     }
-    static void exch(vector<Comparable> &a, int i, int j) {
-        Comparable tmp = a[i];
+    static void exch(vector<Comparable<T>> &a, uint32_t i, uint32_t j) {
+        Comparable<T> tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
     }
 };
 
+// 归并排序
+template <class T>
 class Merge {
     public:
-    //static vector<Comparable> aux;
-    static void sort(vector<Comparable> &a) {
-        vector<Comparable> aux;
+    static void sort(vector<Comparable<T>> &a) {
         size_t count = a.size();
-        for (int i = 0; i < count; i++) {
-            Comparable c;
-            c.value = 0;
-            aux.push_back(c);
-        }
+        vector<Comparable<T>> aux(count);
         sort(a, 0, count - 1, aux);
     }
-    static void show(vector<Comparable> a) {
+    static void show(vector<Comparable<T>> a) {
         size_t count = a.size();
-        for (int i = 0; i < count; i++) {
+        for (uint32_t i = 0; i < count; i++) {
             cout << a.at(i).value << ' ';
         }
         cout << endl;
     }
-    static bool isSorted(vector<Comparable> a) {
+    static bool isSorted(vector<Comparable<T>> a) {
         size_t count = a.size();
-        for (int i = 1; i < count; i++) {
+        for (uint32_t i = 1; i < count; i++) {
             if (less(a[i], a[i - 1])) {
                 return false;
             }
@@ -173,23 +173,23 @@ class Merge {
         return true;
     }
 private:
-    //static vector<Comparable> aux;
-    static void sort(vector<Comparable> &a, size_t lo, size_t hi, vector<Comparable> &aux) {
+    //static vector<Comparable<int>> aux;
+    static void sort(vector<Comparable<T>> &a, uint32_t lo, uint32_t hi, vector<Comparable<T>> &aux) {
         if (hi <= lo) {
             return;
         }
-        size_t mid = lo + (hi - lo) / 2;
+        uint32_t mid = lo + (hi - lo) / 2;
         sort(a, lo, mid, aux);
         sort(a, mid + 1, hi, aux);
         merge(a, lo, mid, hi, aux);
     }
-    static void merge(vector<Comparable> &a, size_t lo, size_t mid, size_t hi, vector<Comparable> &aux) {
-        size_t i = lo;
-        size_t j = mid + 1;
-        for (size_t k = lo; k <= hi; k++) {
+    static void merge(vector<Comparable<T>> &a, uint32_t lo, uint32_t mid, uint32_t hi, vector<Comparable<T>> &aux) {
+        uint32_t i = lo;
+        uint32_t j = mid + 1;
+        for (uint32_t k = lo; k <= hi; k++) {
             aux[k] = a[k];
         }
-        for (size_t k = lo; k <= hi; k++) {
+        for (uint32_t k = lo; k <= hi; k++) {
             if (i > mid) {
                 a[k] = aux[j++];
             } else if (j > hi) {
@@ -201,32 +201,33 @@ private:
             }
         }
     }
-    static bool less(Comparable v, Comparable w) {
+    static bool less(Comparable<T> v, Comparable<T> w) {
         return v.compareTo(w) < 0;
     }
-    static void exch(vector<Comparable> &a, int i, int j) {
-        Comparable tmp = a[i];
+    static void exch(vector<Comparable<T>> &a, uint8_t i, uint8_t j) {
+        Comparable<T> tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
     }
 };
 
+template <class T>
 class Quick {
 public:
-    static void sort(vector<Comparable> &a) {
+    static void sort(vector<Comparable<T>> &a) {
         size_t count = a.size();
         sort(a, 0, count - 1);
     }
-    static void show(vector<Comparable> a) {
+    static void show(vector<Comparable<T>> a) {
         size_t count = a.size();
-        for (int i = 0; i < count; i++) {
+        for (uint32_t i = 0; i < count; i++) {
             cout << a.at(i).value << ' ';
         }
         cout << endl;
     }
-    static bool isSorted(vector<Comparable> a) {
+    static bool isSorted(vector<Comparable<T>> a) {
         size_t count = a.size();
-        for (int i = 1; i < count; i++) {
+        for (uint32_t i = 1; i < count; i++) {
             if (less(a[i], a[i - 1])) {
                 return false;
             }
@@ -234,18 +235,18 @@ public:
         return true;
     }
 private:
-    static void sort(vector<Comparable> &a, size_t lo, size_t hi) {
+    static void sort(vector<Comparable<T>> &a, uint32_t lo, uint32_t hi) {
         if (hi <= lo) {
             return;
         }
-        size_t mid = partition(a, lo, hi);
+        uint32_t mid = partition(a, lo, hi);
         sort(a, lo, mid - 1);
         sort(a, mid + 1, hi);
     }
-    static size_t partition(vector<Comparable> &a, size_t lo, size_t hi) {
-        size_t i = lo;
-        size_t j = hi + 1;
-        Comparable midValue = a[lo];
+    static size_t partition(vector<Comparable<T>> &a, uint32_t lo, uint32_t hi) {
+        uint32_t i = lo;
+        uint32_t j = hi + 1;
+        Comparable<T> midValue = a[lo];
         while (true) {
             while (less(a[++i], midValue)) {
                 if (i == hi) {
@@ -265,67 +266,76 @@ private:
         exch(a, lo, j);
         return j;
     }
-    static bool less(Comparable v, Comparable w) {
+    static bool less(Comparable<T> v, Comparable<T> w) {
         return v.compareTo(w) < 0;
     }
-    static void exch(vector<Comparable> &a, size_t i, size_t j) {
-        Comparable tmp = a[i];
+    static void exch(vector<Comparable<T>> &a, uint32_t i, uint32_t j) {
+        Comparable<T> tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
     }
 };
 
 int main(int argc, const char * argv[]) {
-    vector<int> a = {5, 3, 1, 10, 2, 18, 38, 17, 16, 25};
-    vector<Comparable> params;
+    vector<int> a = {5, 3, 1, 10, 2, 18, 38, 17, 16, 25, 10};
+    vector<Comparable<int>> params;
     for (int i = 0; i < a.size(); i++) {
-        Comparable c;
+        Comparable<int> c;
         c.value = a[i];
         params.push_back(c);
     }
     
     /*
-    Selection::show(params);
-    Selection::sort(params);
-    bool isSorted = Selection::isSorted(params);
+    Selection<int>::show(params);
+    Selection<int>::sort(params);
+    bool isSorted = Selection<int>::isSorted(params);
     if (isSorted) {
-        Selection::show(params);
+        Selection<int>::show(params);
+    }
+     */
+    
+    /*
+    Insertion<int>::show(params);
+    Insertion<int>::sort(params);
+    bool isSorted = Insertion<int>::isSorted(params);
+    if (isSorted) {
+        Insertion<int>::show(params);
     }
     */
     
     /*
-    Insertion::show(params);
-    Insertion::sort(params);
-    bool isSorted = Insertion::isSorted(params);
+    Shell<int>::show(params);
+    Shell<int>::sort(params);
+    bool isSorted = Shell<int>::isSorted(params);
     if (isSorted) {
-        Insertion::show(params);
+        Shell<int>::show(params);
     }
      */
+    
+    
+    Merge<int>::show(params);
+    Merge<int>::sort(params);
+    bool isSorted = Merge<int>::isSorted(params);
+    if (isSorted) {
+        Merge<int>::show(params);
+    }
+
     
     /*
-    Shell::show(params);
-    Shell::sort(params);
-    bool isSorted = Shell::isSorted(params);
+    Quick<int>::show(params);
+    Quick<int>::sort(params);
+    bool isSorted = Quick<int>::isSorted(params);
     if (isSorted) {
-        Shell::show(params);
+        Quick<int>::show(params);
     }
      */
     
-    /*
-    Merge::show(params);
-    Merge::sort(params);
-    bool isSorted = Merge::isSorted(params);
-    if (isSorted) {
-        Merge::show(params);
+    Comparable<uint32_t> t1 = {10}, t2 = {10};
+    int res = t1.compareTo(t2);
+    if (res) {
+        cout << res << endl;
     }
-     */
     
-    Quick::show(params);
-    Quick::sort(params);
-    bool isSorted = Quick::isSorted(params);
-    if (isSorted) {
-        Quick::show(params);
-    }
     
     return 0;
 }

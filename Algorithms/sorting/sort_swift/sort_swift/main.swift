@@ -77,3 +77,25 @@ let nums2: [Int] = [2, 7, 9, 10 ,11, 28, 55]
 
 Solution().merge(&nums1, nums1.count - nums2.count, nums2, nums2.count)
 print(nums1)
+
+var nums3: [Int] = [5, 3, 1, 10, 2, 18, 38, 17, 16, 25]
+var nums4: [ComparableObject<Int>] = [ComparableObject<Int>]()
+nums3.forEach { num in
+    nums4.append(ComparableObject(value: num))
+}
+
+let merge = Merge<Int>()
+merge.show(nums4)
+merge.sort(&nums4)
+//merge.show(nums4)
+if merge.isSorted(nums4) {
+    merge.show(nums4)
+}
+
+
+//Merge<ComparableObject<Int>>.show(nums4)
+//Merge<ComparableObject<Int>>.sort(nums4)
+//if Merge<ComparableObject<Int>>.isSorted(nums4) {
+//    Merge<ComparableObject<Int>>.sort(nums4)
+//}
+
