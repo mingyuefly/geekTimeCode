@@ -8,15 +8,17 @@
 import Foundation
 
 class Merge<T: Comparable> {
-    func sort(_ a: inout [ComparableObject<T>]) {
+    static func sort(_ a: inout [ComparableObject<T>]) {
         var aux: [ComparableObject<T>] = Array(a)
         sort(&a, 0, a.count - 1, &aux)
     }
-    func show(_ a: [ComparableObject<T>]) {
-//        print("show")
-        print(a)
+    static func show(_ a: [ComparableObject<T>]) {
+        a.forEach { num in
+            print(num.value, terminator: " ")
+        }
+        print("")
     }
-    func isSorted(_ a: [ComparableObject<T>]) -> Bool {
+    static func isSorted(_ a: [ComparableObject<T>]) -> Bool {
         for i in 1..<a.count {
             let v = a[i - 1]
             let w = a[i]
@@ -28,7 +30,7 @@ class Merge<T: Comparable> {
         return true
     }
 
-    private func sort(_ a: inout [ComparableObject<T>], _ l: Int, _ r: Int, _ aux: inout [ComparableObject<T>]) {
+    static private func sort(_ a: inout [ComparableObject<T>], _ l: Int, _ r: Int, _ aux: inout [ComparableObject<T>]) {
         if r <= l {
             return
         }
@@ -37,7 +39,7 @@ class Merge<T: Comparable> {
         sort(&a, mid + 1, r, &aux)
         merge(&a, l, mid, r, &aux)
     }
-    private func merge(_ a: inout [ComparableObject<T>], _ l: Int, _ mid: Int, _ r: Int, _ aux: inout [ComparableObject<T>]) {
+    static private func merge(_ a: inout [ComparableObject<T>], _ l: Int, _ mid: Int, _ r: Int, _ aux: inout [ComparableObject<T>]) {
         var i = l
         var j = mid + 1
         for k1 in l...r {
@@ -58,13 +60,13 @@ class Merge<T: Comparable> {
                 j += 1
             }
         }
-        print(a)
+//        print(a)
     }
-    func less(_ v: ComparableObject<T>, _ w: ComparableObject<T>) -> Bool {
+    static private func less(_ v: ComparableObject<T>, _ w: ComparableObject<T>) -> Bool {
         return v.compareTo(a: w)
     }
-    private func exch(a: inout [T], v: Int, w: Int) {
-        let tmp = a[v]
+    static private func exch(_ a: inout [ComparableObject<T>], _ v: Int, _ w: Int) {
+        let tmp = a[w]
         a[w] = a[v]
         a[v] = tmp
     }

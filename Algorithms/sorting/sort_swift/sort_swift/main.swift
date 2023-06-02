@@ -78,24 +78,48 @@ let nums2: [Int] = [2, 7, 9, 10 ,11, 28, 55]
 Solution().merge(&nums1, nums1.count - nums2.count, nums2, nums2.count)
 print(nums1)
 
-var nums3: [Int] = [5, 3, 1, 10, 2, 18, 38, 17, 16, 25]
+/// MARK: merge 归并排序
+print("merge")
+var nums3: [Int] = [5, 3, 1, 10, 2, 18, 38, 17, 16, 25, 10]
 var nums4: [ComparableObject<Int>] = [ComparableObject<Int>]()
 nums3.forEach { num in
     nums4.append(ComparableObject(value: num))
 }
 
-let merge = Merge<Int>()
-merge.show(nums4)
-merge.sort(&nums4)
+//let merge = Merge<Int>()
+Merge<Int>.show(nums4)
+Merge<Int>.sort(&nums4)
 //merge.show(nums4)
-if merge.isSorted(nums4) {
-    merge.show(nums4)
+if Merge<Int>.isSorted(nums4) {
+    Merge<Int>.show(nums4)
 }
 
+/// MARK:  selection 选择排序
+print("selection")
 
-//Merge<ComparableObject<Int>>.show(nums4)
-//Merge<ComparableObject<Int>>.sort(nums4)
-//if Merge<ComparableObject<Int>>.isSorted(nums4) {
-//    Merge<ComparableObject<Int>>.sort(nums4)
-//}
+var nums5: [Int] = [5, 3, 1, 10, 2, 18, 38, 17, 16, 25, 10]
+var nums6: [ComparableObject<Int>] = [ComparableObject<Int>]()
+nums5.forEach { num in
+    nums6.append(ComparableObject(value: num))
+}
+Selection<Int>.show(nums6)
+Selection<Int>.sort(&nums6)
+//merge.show(nums4)
+if Selection<Int>.isSorted(nums6) {
+    Selection<Int>.show(nums6)
+}
 
+/// MARK: insertion  插入排序
+print("insertion")
+
+var nums7: [Int] = [5, 3, 1, 10, 2, 18, 38, 17, 16, 25, 10]
+var nums8: [ComparableObject<Int>] = [ComparableObject<Int>]()
+nums7.forEach { num in
+    nums8.append(ComparableObject(value: num))
+}
+Inserction<Int>.show(nums8)
+Inserction<Int>.sort(&nums8)
+//merge.show(nums4)
+if Inserction<Int>.isSorted(nums8) {
+    Inserction<Int>.show(nums8)
+}
