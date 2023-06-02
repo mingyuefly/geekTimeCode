@@ -123,3 +123,33 @@ Inserction<Int>.sort(&nums8)
 if Inserction<Int>.isSorted(nums8) {
     Inserction<Int>.show(nums8)
 }
+
+/// MARK: shell 希尔排序
+print("shell")
+var nums9: [Int] = [5, 3, 1, 10, 2, 18, 38, 17, 16, 25, 10]
+var nums10: [ComparableObject<Int>] = [ComparableObject<Int>]()
+nums9.forEach { num in
+    nums10.append(ComparableObject(value: num))
+}
+Shell<Int>.show(nums8)
+Shell<Int>.sort(&nums8)
+//merge.show(nums4)
+if Shell<Int>.isSorted(nums8) {
+    Shell<Int>.show(nums8)
+}
+
+/// MARK: quick 快速排序
+print("quick")
+var nums11: [Int] = [5, 3, 1, 10, 2, 18, 38, 17, 16, 25, 10]
+var nums12: [ComparableObject<Int>] = [ComparableObject<Int>]()
+nums11.forEach { num in
+    nums12.append(ComparableObject(value: num))
+}
+Quick<Int>.show(nums12)
+Quick<Int>.sort(&nums12)
+//merge.show(nums4)
+if Quick<Int>.isSorted(nums12) {
+    Quick<Int>.show(nums12)
+}
+
+print("end")
