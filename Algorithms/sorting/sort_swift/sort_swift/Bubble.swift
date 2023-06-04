@@ -1,5 +1,5 @@
 //
-//  Selection.swift
+//  Bubble.swift
 //  sort_swift
 //
 //  Created by gmy on 2023/6/2.
@@ -7,16 +7,20 @@
 
 import Foundation
 
-class Selection<T: Comparable> {
+class Bubble<T: Comparable> {
     static func sort(_ a: inout [ComparableObject<T>]) {
-        for i in 0..<a.count {
-            var index = i
-            for j in (i + 1)..<a.count {
-                if less(a[j], a[index]) {
-                    index = j
+        var ordered = false;
+        for i in 1..<a.count {
+            ordered = true
+            for j in 1...(a.count - i) {
+                if less(a[j - 1], a[j]) == false {
+                    exch(&a, j - 1, j)
+                    ordered = false
                 }
             }
-            exch(&a, i, index)
+            if ordered {
+                break
+            }
         }
     }
     static func isSorted(_ a: [ComparableObject<T>]) -> Bool {

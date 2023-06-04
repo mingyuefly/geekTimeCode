@@ -152,4 +152,18 @@ if Quick<Int>.isSorted(nums12) {
     Quick<Int>.show(nums12)
 }
 
+/// MARK: bubble 冒泡排序
+print("bubble")
+var nums13: [Int] = [5, 3, 1, 10, 2, 18, 38, 17, 16, 25, 10]
+var nums14: [ComparableObject<Int>] = [ComparableObject<Int>]()
+nums13.forEach { num in
+    nums14.append(ComparableObject(value: num))
+}
+Bubble<Int>.show(nums14)
+Bubble<Int>.sort(&nums14)
+//merge.show(nums4)
+if Bubble<Int>.isSorted(nums14) {
+    Bubble<Int>.show(nums14)
+}
+
 print("end")

@@ -38,7 +38,7 @@ class Inserction<T: Comparable> {
     }
     
     static private func less(_ v: ComparableObject<T>, _ w: ComparableObject<T>) -> Bool {
-        return v.compareTo(a: w)
+        return v.compareTo(w)
     }
     static private func exch(_ a: inout [ComparableObject<T>], _ v: Int, _ w: Int) {
         let tmp = a[w]

@@ -11,23 +11,26 @@
 
 using namespace std;
 
-typedef struct Comparable {
+
+template <typename T>
+struct Comparable {
 public:
-    int value;
-    int compareTo(Comparable a) {
+    T value;
+    T compareTo(Comparable a) {
         return value - a.value;
     }
-}Comparable;
+};
 
+template <typename T>
 class MaxPQ {
 private:
-    vector<Comparable > *pq;
+    vector<Comparable<T>> *pq;
     size_t N;
 public:
     MaxPQ(size_t maxN) {
-        pq = new vector<Comparable>(maxN + 1);
+        pq = new vector<Comparable<T>>(maxN + 1);
         for (int i = 0; i < maxN + 1; i++) {
-            Comparable c;
+            Comparable<T> c;
             c.value = 0;
             pq->at(i) = c;
         }
@@ -44,14 +47,14 @@ public:
     size_t size() {
         return N;
     }
-    void insert(Comparable v) {
+    void insert(Comparable<T> v) {
         pq->at(++N) = v;
         swim(N);
     }
-    Comparable delMax() {
-        Comparable max = pq->at(1);
+    Comparable<T> delMax() {
+        Comparable<T> max = pq->at(1);
         exch(1, N--);
-        Comparable c;
+        Comparable<T> c;
         c.value = 0;
         pq->at(N + 1) = c;
         sink(1);
@@ -69,7 +72,7 @@ private:
         return pq->at(i).compareTo(pq->at(j)) < 0;
     }
     void exch(size_t i, size_t j) {
-        Comparable tmp = pq->at(i);
+        Comparable<T> tmp = pq->at(i);
         pq->at(i) = pq->at(j);
         pq->at(j) = tmp;
     }
@@ -94,15 +97,16 @@ private:
     }
 };
 
+template <typename T>
 class MinPQ {
 private:
-    vector<Comparable > *pq;
+    vector<Comparable<T> > *pq;
     size_t N;
 public:
     MinPQ(size_t maxN) {
-        pq = new vector<Comparable>(maxN + 1);
+        pq = new vector<Comparable<T>>(maxN + 1);
         for (int i = 0; i < maxN + 1; i++) {
-            Comparable c;
+            Comparable<T> c;
             c.value = 0;
             pq->at(i) = c;
         }
@@ -119,14 +123,14 @@ public:
     size_t size() {
         return N;
     }
-    void insert(Comparable v) {
+    void insert(Comparable<T> v) {
         pq->at(++N) = v;
         swim(N);
     }
-    Comparable delMin() {
-        Comparable min = pq->at(1);
+    Comparable<T> delMin() {
+        Comparable<T> min = pq->at(1);
         exch(1, N--);
-        Comparable c;
+        Comparable<T> c;
         c.value = 0;
         pq->at(N + 1) = c;
         sink(1);
@@ -144,7 +148,7 @@ private:
         return pq->at(i).compareTo(pq->at(j)) > 0;
     }
     void exch(size_t i, size_t j) {
-        Comparable tmp = pq->at(i);
+        Comparable<T> tmp = pq->at(i);
         pq->at(i) = pq->at(j);
         pq->at(j) = tmp;
     }
@@ -171,37 +175,38 @@ private:
 
 int main(int argc, const char * argv[]) {
     vector<int> a = {5, 3, 1, 10, 2, 18, 38, 17, 16, 25};
-    vector<Comparable> params;
+    vector<Comparable<int>> params;
     for (int i = 0; i < a.size(); i++) {
-        Comparable c;
+        Comparable<int> c;
         c.value = a[i];
         params.push_back(c);
     }
 
-    MaxPQ maxPQ = MaxPQ(a.size());
+    MaxPQ<int> maxPQ = MaxPQ<int>(a.size());
     maxPQ.show();
     for (int i = 0; i < a.size(); i++) {
         maxPQ.insert(params[i]);
     }
     maxPQ.show();
-    maxPQ.delMax();
+    cout << maxPQ.delMax().value << endl;
     maxPQ.show();
-    maxPQ.delMax();
+    cout << maxPQ.delMax().value << endl;
     maxPQ.show();
     
     cout << endl;
     
-    MinPQ minPQ = MinPQ(a.size());
+    MinPQ<int> minPQ = MinPQ<int>(a.size());
     minPQ.show();
     for (int i = 0; i < a.size(); i++) {
         minPQ.insert(params[i]);
     }
     minPQ.show();
-    minPQ.delMin();
+    cout << minPQ.delMin().value << endl;
     minPQ.show();
-    minPQ.delMin();
+    cout << minPQ.delMin().value << endl;
     minPQ.show();
-    Comparable c1;
+    
+    Comparable<int> c1;
     c1.value = 1;
     minPQ.insert(c1);
     minPQ.show();
