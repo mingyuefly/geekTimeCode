@@ -8,30 +8,33 @@
 
 #include <iostream>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
-typedef struct Comparable {
+template <typename T>
+struct Comparable {
 public:
     Comparable() {
         
     }
-    Comparable(int value) {
+    Comparable(T value) {
         this->value = value;
-    }
-    int value;
-    int compareTo(Comparable a) {
-        return value - a.value;
     }
     ~Comparable() {
         cout << "~Comparable()" << endl;
     }
-}Comparable;
+    T value;
+    int compareTo(Comparable a) {
+        return value - a.value;
+    }
+};
 
+template <typename T>
 class BinarySearchST {
 public:
-    BinarySearchST(int capicity) {
-        keys = new vector<Comparable>(capicity);
+    BinarySearchST(uint32_t capicity) {
+        keys = new vector<Comparable<T>>(capicity);
         vals = new vector<int>(capicity);
         N = 0;
     }
@@ -46,7 +49,7 @@ public:
     int size() {
         return N;
     }
-    int rank(Comparable key) {
+    int rank(Comparable<T> key) {
         int lo = 0, hi = N - 1;
         while (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
@@ -60,7 +63,7 @@ public:
         }
         return lo;
     }
-    int get(Comparable key) {
+    int get(Comparable<T> key) {
         if (isEmpty() == true) {
             return -1;
         }
@@ -71,7 +74,7 @@ public:
             return -1;
         }
     }
-    void put(Comparable key, int val) {
+    void put(Comparable<T> key, int val) {
         if (N == keys->size()) {
             resize(2 * int(keys->size()));
         }
@@ -88,7 +91,7 @@ public:
         vals->at(i) = val;
         N++;
     }
-    void deleteKey(Comparable key) {
+    void deleteKey(Comparable<T> key) {
         if (isEmpty() == true) {
             return ;
         }
@@ -99,25 +102,35 @@ public:
                 keys->at(j) = keys->at(j + 1);
                 vals->at(j) = vals->at(j + 1);
             }
+            keys->at(N) = Comparable<T>(-1);
+            vals->at(N) = -1;
             if (N > 0 && N == keys->size() / 4) {
                 resize(int(keys->size()) / 2);
             }
         }
     }
-    Comparable min() {
+    Comparable<T> min() {
         return keys->at(0);
     }
-    Comparable max() {
+    Comparable<T> max() {
         return keys->at(N - 1);
     }
-    Comparable select(int k) {
+    Comparable<T> select(int k) {
         return keys->at(k);
     }
-    Comparable ceiling(Comparable key) {
+    Comparable<T> ceiling(Comparable<T> key) {
         int i = rank(key);
-        return keys->at(i);
+        if (i < N && keys->at(i).compareTo(key) == 0) {
+            return keys->at(i);
+        } else {
+            if (i >= 0 && i < N - 1) {
+                return keys->at(i + 1);
+            } else {
+                return Comparable<T>(-1);
+            }
+        }
     }
-    Comparable floor(Comparable key) {
+    Comparable<T> floor(Comparable<T> key) {
         int i = rank(key);
         if (i < N && keys->at(i).compareTo(key) == 0) {
             return keys->at(i);
@@ -125,9 +138,24 @@ public:
             if (i > 0) {
                 return keys->at(i - 1);
             } else {
-                return Comparable(-1);
+                return Comparable<T>(-1);
             }
         }
+    }
+    queue<Comparable<T>> Iterable(Comparable<T> lo, Comparable<T> hi) {
+        queue<Comparable<T>> q;
+        int i = rank(lo);
+        int j = rank(hi);
+        if (i > j) {
+            return q;
+        }
+        if (i > N || j > N) {
+            return q;
+        }
+        for (int k = i; k <= j; k++) {
+            q.push(keys[k]);
+        }
+        return q;
     }
     void show() {
         for (int i = 0; i < N; i++) {
@@ -136,7 +164,7 @@ public:
         cout << endl;
     }
 private:
-    vector<Comparable> *keys;
+    vector<Comparable<T>> *keys;
     vector<int> *vals;
     int N;
     void resize(int max) {
@@ -147,18 +175,18 @@ private:
 };
 
 int main(int argc, const char * argv[]) {
-    BinarySearchST st = BinarySearchST(2);
-    Comparable key0 = Comparable();
+    BinarySearchST<int> st = BinarySearchST<int>(2);
+    Comparable<int> key0;
     key0.value = 3;
-    Comparable key1 = Comparable();
+    Comparable<int> key1;
     key1.value = 4;
-    Comparable key2 = Comparable();
+    Comparable<int> key2;
     key2.value = 5;
-    Comparable key3 = Comparable();
+    Comparable<int> key3;
     key3.value = 7;
-    Comparable key4 = Comparable();
+    Comparable<int> key4;
     key4.value = 9;
-    Comparable key5 = Comparable();
+    Comparable<int> key5;
     key5.value = 14;
     
     int v0 = 11;
