@@ -100,7 +100,7 @@ public:
         show(root);
     }
 private:
-    Node *root;
+    Node *root = nullptr;
     int size(Node * x) {
         if (x == nullptr) {
             return 0;
@@ -167,7 +167,7 @@ private:
         if (t > k) {
             return select(x->left, k);
         } else if (t < k) {
-            return select(x->right, k - t - 1);
+            return select(x->right, k);
         } else {
             return x;
         }
@@ -272,6 +272,7 @@ int main(int argc, const char * argv[]) {
     
     cout << bst.min().value << endl;
     cout << bst.floor(key6).value << endl;
+    cout << bst.floor(19).value << endl;
     
     Comparable key9 = Comparable();
     key9.value = 13;

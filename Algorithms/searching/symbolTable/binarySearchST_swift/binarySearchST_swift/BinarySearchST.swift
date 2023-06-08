@@ -160,5 +160,10 @@ class BinarySearchST {
         valArr.replaceSubrange(0..<N, with: vals)
         vals = valArr
         capicity = size
+        
+        
+        //        keys.reserveCapacity(size) // 此方法只能预留位置，并不能改变count，也不能通过下标访问大于等于count而小于capicity的element
+        //        vals.reserveCapacity(size)
+        //        capicity = size
     }
 }

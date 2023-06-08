@@ -36,34 +36,44 @@ public:
 class SequentialSearchST {
 public:
     SequentialSearchST() {
-        first = NULL;
+        first = nullptr;
     }
     int get(Comparable key) {
-        for (Node *head = first; head != NULL; head = head->next) {
+        Node *head = first;
+        while (head != nullptr) {
             if (key.compareTo(head->key) == 0) {
                 return head->val;
             }
+            head = head->next;
         }
         return -1;
     }
     void put(Comparable key, int val) {
-        for (Node *head = first; head != NULL; head = head->next) {
+        Node *head = first;
+        while (head != nullptr) {
             if (key.compareTo(head->key) == 0) {
                 head->val = val;
                 return;
             }
+            head = head->next;
         }
         this->first = new Node(key, val, this->first);
     }
     void deleteKey(Comparable key) {
-        Node *pre = first;
-        for (Node *head = first; head != NULL; head = head->next) {
+        Node *pre = nullptr;
+        Node *head = first;
+        while (head != nullptr) {
             if (key.compareTo(head->key) == 0) {
-                pre->next = head->next;
+                if (head == first) {
+                    first = head->next;
+                } else {
+                    pre->next = head->next;
+                }
                 delete head;
                 break;
             }
             pre = head;
+            head = head->next;
         }
     }
     void show() {
@@ -74,8 +84,11 @@ public:
     }
     ~SequentialSearchST() {
         cout << "~SequentialSearchST()" << endl;
-        for (Node *head = first; head != NULL; head = head->next) {
-            delete head;
+        Node *head = first;
+        while (head != nullptr) {
+            Node *tmpH = head;
+            head = head->next;
+            delete tmpH;
         }
     }
 private:
@@ -119,6 +132,9 @@ int main(int argc, const char * argv[]) {
     st.show();
     
     st.deleteKey(key2);
+    st.show();
+    
+    st.deleteKey(key5);
     st.show();
     
     return 0;
