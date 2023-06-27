@@ -18,5 +18,14 @@ struct ComparableObject {
     func equal(_ a: ComparableObject) -> Bool {
         return value == a.value
     }
+    func compare(_ a: ComparableObject) -> Int {
+        if value < a.value {
+            return -1
+        } else if value > a.value {
+            return 1
+        } else {
+            return 0
+        }
+    }
 }
 

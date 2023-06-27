@@ -31,14 +31,33 @@ bst.put(key6, 106)
 bst.put(key7, 107)
 bst.put(key8, 108)
 
-bst.show()
+bst.inOrder()
+bst.inOrderWithoutRecursion()
+bst.levelOrder()
+
+var queue = bst.Iterable()
+while queue.isEmpty() == false {
+    if let key = queue.dequeue() {
+        print(key.value)
+    }
+}
+print("")
+
+var queue1 = bst.Iterable(ComparableObject(value: 5), ComparableObject(value: 19))
+while queue1.isEmpty() == false {
+    if let key = queue1.dequeue() {
+        print(key.value)      
+    }
+}
+print("")
 
 print(bst.get(key5))
 
 bst.put(key6, 116)
-bst.show()
+bst.inOrder()
 
 print(bst.min().value)
+print(bst.max().value)
 
 print(bst.floor(key6).value)
 print(bst.floor(ComparableObject(value: 19)).value)
@@ -51,10 +70,11 @@ print(bst.select(3).value)
 print(bst.rank(ComparableObject(value: 16)))
 
 bst.deleteMin()
-bst.show()
+bst.inOrder()
 
 bst.deleteKey(key6)
-bst.show()
+//bst.deleteKey(key0)
+bst.inOrder()
 
 print("end")
 

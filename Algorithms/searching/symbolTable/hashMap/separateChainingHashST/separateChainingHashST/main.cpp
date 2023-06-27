@@ -37,10 +37,10 @@ public:
 class SequentialSearchST {
 public:
     SequentialSearchST() {
-        first = NULL;
+        first = nullptr;
     }
     int get(Comparable key) {
-        for (Node *head = first; head != NULL; head = head->next) {
+        for (Node *head = first; head != nullptr; head = head->next) {
             if (key.compareTo(head->key) == 0) {
                 return head->val;
             }
@@ -48,7 +48,7 @@ public:
         return -1;
     }
     void put(Comparable key, int val) {
-        for (Node *head = first; head != NULL; head = head->next) {
+        for (Node *head = first; head != nullptr; head = head->next) {
             if (key.compareTo(head->key) == 0) {
                 head->val = val;
                 return;
@@ -58,7 +58,7 @@ public:
     }
     void deleteKey(Comparable key) {
         Node *pre = first;
-        for (Node *head = first; head != NULL; head = head->next) {
+        for (Node *head = first; head != nullptr; head = head->next) {
             if (key.compareTo(head->key) == 0) {
                 pre->next = head->next;
                 delete head;
@@ -68,15 +68,18 @@ public:
         }
     }
     void show() {
-        for (Node *head = first; head != NULL; head = head->next) {
+        for (Node *head = first; head != nullptr; head = head->next) {
             cout << "(" << head->key.value << ":" << head->val << ")" << " ";
         }
         cout << endl;
     }
     ~SequentialSearchST() {
         cout << "~SequentialSearchST()" << endl;
-        for (Node *head = first; head != NULL; head = head->next) {
-            delete head;
+        Node *head = first;
+        while (head != nullptr) {
+            Node *tmpHead = head;
+            head = head->next;
+            delete tmpHead;
         }
     }
 private:

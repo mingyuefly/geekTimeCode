@@ -7,6 +7,8 @@
 //
 
 #include <iostream>
+#include <queue>
+#include <stack>
 
 using namespace std;
 
@@ -96,8 +98,15 @@ public:
     void deleteKey(Comparable key) {
         root = deleteKey(root, key);
     }
-    void show() {
-        show(root);
+    void inOrder() {
+        inOrder(root);
+    }
+    void inOrderWithoutRecursion() {
+        inOrderWithoutRecursion(root);
+    }
+    void levelOrder() {
+        levelOrder(root);
+        levelOrder1(root);
     }
 private:
     Node *root = nullptr;
@@ -220,13 +229,72 @@ private:
         x->N = size(x->left) + size(x->right) + 1;
         return x;
     }
-    void show(Node * x) {
+    void inOrder(Node * x) {
         if (x == nullptr) {
             return;
         }
-        show(x->left);
+        inOrder(x->left);
         cout << x->key.value << ":" << x->value << endl;
-        show(x->right);
+        inOrder(x->right);
+    }
+    void inOrderWithoutRecursion(Node * x) {
+        if (x == nullptr) {
+            return;
+        }
+        stack<Node *> nodeStack;
+        nodeStack.push(x);
+        Node * tmp = x;
+        while (nodeStack.empty() == false) {
+            while (tmp && tmp->left) {
+                nodeStack.push(tmp->left);
+                tmp = tmp->left;
+            }
+            tmp = nodeStack.top();
+            nodeStack.pop();
+            cout << tmp->key.value << endl;
+            if (tmp->right) {
+                nodeStack.push(tmp->right);
+                tmp = tmp->right;
+            } else {
+                tmp = nullptr;
+            }
+         }
+    }
+    void levelOrder(Node * x) {
+        if (NULL == x) {
+            return;
+        }
+        queue<Node *> nodeQ;
+        nodeQ.push(x);
+        Node * tmp = x;
+        while (!nodeQ.empty()) {
+            tmp = nodeQ.front();
+            nodeQ.pop();
+            cout << tmp->key.value << " ";
+            if (tmp->left) nodeQ.push(tmp->left);
+            if (tmp->right) nodeQ.push(tmp->right);
+        }
+        cout << endl;
+    }
+    void levelOrder1(Node * x) {
+        if (NULL == x) {
+            return;
+        }
+        queue<Node *> nodeQ;
+        nodeQ.push(x);
+        Node * tmp = x;
+        while (!nodeQ.empty()) {
+            int size = (int)nodeQ.size();
+            for (int i = 0; i < size; i++) {
+                tmp = nodeQ.front();
+                nodeQ.pop();
+                cout << tmp->key.value << " ";
+                if (tmp->left) nodeQ.push(tmp->left);
+                if (tmp->right) nodeQ.push(tmp->right);
+            }
+            cout << endl;
+        }
+        cout << endl;
     }
 };
 
@@ -263,12 +331,23 @@ int main(int argc, const char * argv[]) {
     bst.put(key7, 107);
     bst.put(key8, 108);
     
-    bst.show();
+    Comparable key10 = Comparable();
+    key10.value = 1;
+    bst.put(key10, 300);
+    
+    bst.inOrder();
+    bst.inOrderWithoutRecursion();
+    
+//    Comparable key10 = Comparable();
+//    key10.value = 1;
+//    bst.put(key10, 300);
+    
+    bst.levelOrder();
     
     cout << bst.get(key5) << endl;
     
     bst.put(key6, 116);
-    bst.show();
+    bst.inOrder();
     
     cout << bst.min().value << endl;
     cout << bst.floor(key6).value << endl;
@@ -283,10 +362,10 @@ int main(int argc, const char * argv[]) {
     cout << bst.rank(16) << endl;
     
     bst.deleteMin();
-    bst.show();
+    bst.inOrder();
     
     bst.deleteKey(key6);
-    bst.show();
+    bst.inOrder();
  
     return 0;
 }

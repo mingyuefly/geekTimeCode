@@ -50,11 +50,11 @@ class BinarySearchTree {
         }
         return ComparableObject(value: -1)
     }
-    func max() -> ComparableObject? {
+    func max() -> ComparableObject {
         if let root = root {
-            return max(root)?.key
+            return max(root).key
         }
-        return nil
+        return ComparableObject(value: -1)
     }
     func floor(_ key: ComparableObject) -> ComparableObject {
         let node = floor(root, key)
@@ -81,9 +81,28 @@ class BinarySearchTree {
     func deleteKey(_ key: ComparableObject) {
         root = deleteKey(root, key)
     }
-    func show() {
-        show(root)
+    func inOrder() {
+        inOrder(root)
         print("")
+    }
+    func inOrderWithoutRecursion() {
+        inOrderWithoutRecursion(root)
+        print("")
+    }
+    func levelOrder() {
+        levelOrder(root)
+        print("")
+    }
+    func Iterable() -> Queue<ComparableObject> {
+        return Iterable(min(), max())
+    }
+    func Iterable(_ lo: ComparableObject, _ hi: ComparableObject) -> Queue<ComparableObject> {
+        guard let root = root else {
+            return Queue()
+        }
+        var queue = Queue<ComparableObject>()
+        Iterable(root, lo, hi, &queue)
+        return queue
     }
     private func get(_ node: Node?, _ key: ComparableObject) -> Int {
         guard let node = node else {
@@ -92,7 +111,7 @@ class BinarySearchTree {
         if node.key.more(key) {
             return get(node.left, key)
         } else if node.key.less(key) {
-            return get(node.right, key)
+            return get(node.right, key) 
         } else {
             return node.value
         }
@@ -117,7 +136,7 @@ class BinarySearchTree {
         }
         return node
     }
-    private func max(_ node: Node) -> Node? {
+    private func max(_ node: Node) -> Node {
         if let node = node.right {
             return max(node)
         }
@@ -185,7 +204,7 @@ class BinarySearchTree {
             guard let right = node.right else {
                 return node.left
             }
-            guard let left = node.left else {
+            guard node.left != nil else {
                 return node.right
             }
             let t = node
@@ -196,13 +215,75 @@ class BinarySearchTree {
         node.N = size(node.left) + size(node.right) + 1
         return node
     }
-    private func show(_ node: Node?) {
+    private func inOrder(_ node: Node?) {
         guard let node = node else {
             return
         }
-        show(node.left)
+        inOrder(node.left)
         print(String(node.key.value) + ":" + String(node.value))
-        show(node.right)
+        inOrder(node.right)
+    }
+    private func inOrderWithoutRecursion(_ node: Node?) {
+        guard let node = node else {
+            return
+        }
+        var stack = Stack<Node>()
+        stack.push(node)
+        var tmp: Node? = node
+        while stack.isEmpty() == false {
+            while tmp != nil && tmp?.left != nil {
+                if let left = tmp?.left {
+                    stack.push(left)
+                }
+                tmp = tmp?.left
+            }
+            tmp = stack.pop()
+            if let tmp = tmp {
+                print(tmp.key.value)
+            }
+            if let right = tmp?.right {
+                stack.push(right)
+                tmp = right
+            } else {
+                tmp = nil
+            }
+        }
+    }
+    private func levelOrder(_ node: Node?) {
+        guard let node = node else {
+            return
+        }
+        var queue = Queue<Node>()
+        queue.enqueue(node)
+        while queue.isEmpty() == false {
+            guard let node = queue.dequeue() else {
+                return
+            }
+            print(node.key.value, separator: "", terminator: " ")
+            if let left = node.left {
+                queue.enqueue(left)
+            }
+            if let right = node.right {
+                queue.enqueue(right)
+            }
+//            print("")
+        }
+    }
+    private func Iterable(_ node: Node?, _ lo: ComparableObject, _ hi: ComparableObject, _ queue: inout Queue<ComparableObject>) {
+        guard let node = node else {
+            return
+        }
+        let cmpL = lo.compare(node.key)
+        let cmpH = hi.compare(node.key)
+        if cmpL < 0 {
+            Iterable(node.left, lo, hi, &queue)
+        }
+        if cmpL <= 0 && cmpH >= 0 {
+            queue.enqueue(node.key)
+        }
+        if cmpH > 0 {
+            Iterable(node.right, lo, hi, &queue)
+        }
     }
 }
 
