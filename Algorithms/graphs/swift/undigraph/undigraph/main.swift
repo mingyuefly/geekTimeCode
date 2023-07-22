@@ -25,6 +25,11 @@ g.show()
 print(g.getV())
 print(g.getE())
 
+/// MARK: depth first paths
+/**
+ depth first paths
+ */
+
 //let depthFirstPaths = DepthFirstPaths(g: &g, s: 0)
 //for i in 0..<g.getV() {
 //    if depthFirstPaths.getMarked(i) {
@@ -44,12 +49,33 @@ for i in 0..<g.getV() {
 //}
 
 depthFirstPaths.showEdge()
-var path = depthFirstPaths.pathTo(5)
 
-while var empty = path.isEmpty(), !empty {
-    print(path.pop())
+var dPath = depthFirstPaths.pathTo(5)
+while let empty = dPath.isEmpty(), !empty {
+    print(dPath.pop())
 }
 
+/// MARK: breadth first paths
+/**
+ breadth first paths
+ */
+
+let breadthFirstPaths = BreadthFirstPaths(g: &g, s: 0)
+for i in 0..<g.getV() {
+    print("0 has path to \(i) : \(breadthFirstPaths.hasPathsTo(i))")
+}
+breadthFirstPaths.showEdge()
+
+//let breadthFirstPaths1 = BreadthFirstPaths(g: &g, s: 6)
+//for i in 0..<g.getV() {
+//    print("6 has path to \(i) : \(breadthFirstPaths1.hasPathsTo(i))")
+//}
+//breadthFirstPaths1.showEdge()
+
+var bPath = breadthFirstPaths.pathTo(5)
+while let empty = bPath.isEmpty(), !empty {
+    print(bPath.pop())
+}
 
 
 print("end")
