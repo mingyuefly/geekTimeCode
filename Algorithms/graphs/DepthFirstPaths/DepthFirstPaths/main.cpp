@@ -120,6 +120,8 @@ int main(int argc, const char * argv[]) {
     g->addEdge(3, 4);
     g->addEdge(3, 5);
     g->show();
+    cout << g->getV() << endl;
+    cout << g->getE() << endl;
     
     DepthFirstPaths depthFirstPaths = DepthFirstPaths(g, 0);
     depthFirstPaths.showEdge();
