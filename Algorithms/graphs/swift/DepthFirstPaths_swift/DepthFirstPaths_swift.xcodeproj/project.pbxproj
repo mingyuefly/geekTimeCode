@@ -10,6 +10,7 @@
 		E7B3377D2A6BBF66004397F8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3377C2A6BBF66004397F8 /* main.swift */; };
 		E7B337872A6BF242004397F8 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337862A6BF242004397F8 /* Graph.swift */; };
 		E7B337892A6C12A0004397F8 /* DepthFirstPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337882A6C12A0004397F8 /* DepthFirstPaths.swift */; };
+		E7B3378D2A6C3EBE004397F8 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3378C2A6C3EBE004397F8 /* Stack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,7 @@
 		E7B3377C2A6BBF66004397F8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E7B337862A6BF242004397F8 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		E7B337882A6C12A0004397F8 /* DepthFirstPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthFirstPaths.swift; sourceTree = "<group>"; };
+		E7B3378C2A6C3EBE004397F8 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		E7B3377B2A6BBF66004397F8 /* DepthFirstPaths_swift */ = {
 			isa = PBXGroup;
 			children = (
+				E7B3378C2A6C3EBE004397F8 /* Stack.swift */,
 				E7B337862A6BF242004397F8 /* Graph.swift */,
 				E7B337882A6C12A0004397F8 /* DepthFirstPaths.swift */,
 				E7B3377C2A6BBF66004397F8 /* main.swift */,
@@ -126,6 +129,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7B3378D2A6C3EBE004397F8 /* Stack.swift in Sources */,
 				E7B337872A6BF242004397F8 /* Graph.swift in Sources */,
 				E7B3377D2A6BBF66004397F8 /* main.swift in Sources */,
 				E7B337892A6C12A0004397F8 /* DepthFirstPaths.swift in Sources */,
