@@ -84,7 +84,7 @@ private:
         marked->at(v) = true;
         for (int w: *g->adj->at(v)) {
             if (marked->at(w) == false) {
-                dfs(g, w, v);
+                dfs(g, w, v); 
             } else if (w != u) {
                 hasCycle = true;
             }

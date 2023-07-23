@@ -109,8 +109,18 @@ g1.addEdge(9, 12)
 g1.addEdge(11, 12)
 g1.show();
 
-var cycle = Cycle(g: &g1);
-print("g1 hasCycle: \(cycle.getHasCycle())")
+var cycle1 = Cycle(g: &g1);
+print("g1 hasCycle: \(cycle1.getHasCycle())")
+var cycle = Cycle(g: &g);
+print("g hasCycle: \(cycle.getHasCycle())")
+var g2 = Graph(5)
+g2.addEdge(0, 2)
+g2.addEdge(0, 1)
+g2.addEdge(1, 3)
+g2.addEdge(3, 4)
+g2.show()
+var cycle2 = Cycle(g: &g2);
+print("g2 hasCycle: \(cycle2.getHasCycle())")
 print("*****************Cycle end******************")
 
 print("end")

@@ -18,7 +18,7 @@ class Cycle {
         let marked = [Bool](repeating: false, count: g.getV())
         self.init(marked: marked, hasCycle: false)
         for i in 0..<g.getV() {
-            if !marked[i] {
+            if !self.marked[i] {
                 dfs(&g, i, i)
             }
         }
@@ -27,8 +27,10 @@ class Cycle {
         marked[v] = true
         g.adj[v].forEach { w in
             if !marked[w] {
+                // v和w相连
                 dfs(&g, w, v)
             } else if w != u {
+                // w已经被标记，w又不等于u，
                 hasCycle = true
             }
         }
