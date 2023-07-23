@@ -121,6 +121,34 @@ g2.addEdge(3, 4)
 g2.show()
 var cycle2 = Cycle(g: &g2);
 print("g2 hasCycle: \(cycle2.getHasCycle())")
+var g3 = Graph(5)
+g3.addEdge(0, 2)
+g3.addEdge(0, 1)
+g3.addEdge(1, 3)
+g3.addEdge(3, 4)
+g3.addEdge(4, 2)
+g3.show()
+var cycle3 = Cycle(g: &g3);
+print("g3 hasCycle: \(cycle3.getHasCycle())")
+
 print("*****************Cycle end******************")
+
+
+/**
+ 用两种颜色给图的所有顶点着色，是否可以使得每条边的两个端点是不同颜色，这个问题等价于这是否一幅二分图？
+ */
+/// MARK: TwoColor
+print("*****************TwoColor begin******************")
+var twoColorG = Graph(4)
+twoColorG.addEdge(0, 1)
+twoColorG.addEdge(1, 2)
+twoColorG.addEdge(2, 3)
+twoColorG.addEdge(3, 0)
+//twoColorG.addEdge(1, 3)
+twoColorG.show()
+
+var twoColor = TwoColor(g: &twoColorG);
+print("twoColorG isTwoColorable : \(twoColor.getIsTwoColorable())")
+print("*****************TwoColor end******************")
 
 print("end")

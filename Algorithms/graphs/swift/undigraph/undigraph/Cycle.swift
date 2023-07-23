@@ -30,7 +30,7 @@ class Cycle {
                 // v和w相连
                 dfs(&g, w, v)
             } else if w != u {
-                // w已经被标记，w又不等于u，
+                // w已经被标记，u->v->w，而u!=w，说明绕个圈回到w，说明有环
                 hasCycle = true
             }
         }
