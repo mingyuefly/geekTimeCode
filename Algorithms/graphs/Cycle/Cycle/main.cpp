@@ -82,13 +82,20 @@ private:
     bool hasCycle = false;
     void dfs(Graph * g, int v, int u) {
         marked->at(v) = true;
-        for (int w = 0; w < g->adj->at(v)->size(); w++) {
-            if (marked->at(g->adj->at(v)->at(w)) == false) {
-                dfs(g, g->adj->at(v)->at(w), v);
+        for (int w: *g->adj->at(v)) {
+            if (marked->at(w) == false) {
+                dfs(g, w, v);
             } else if (w != u) {
                 hasCycle = true;
             }
         }
+//        for (int w = 0; w < g->adj->at(v)->size(); w++) {
+//            if (marked->at(g->adj->at(v)->at(w)) == false) {
+//                dfs(g, g->adj->at(v)->at(w), v);
+//            } else if (w != u) {
+//                hasCycle = true;
+//            }
+//        }
     }
 };
 

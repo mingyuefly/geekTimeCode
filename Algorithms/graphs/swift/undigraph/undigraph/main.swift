@@ -29,7 +29,7 @@ print(g.getE())
 /**
  depth first paths
  */
-
+print("*****************depth first paths begin******************")
 //let depthFirstPaths = DepthFirstPaths(g: &g, s: 0)
 //for i in 0..<g.getV() {
 //    if depthFirstPaths.getMarked(i) {
@@ -54,12 +54,13 @@ var dPath = depthFirstPaths.pathTo(5)
 while let empty = dPath.isEmpty(), !empty {
     print(dPath.pop())
 }
+print("*****************depth first paths end******************")
 
 /// MARK: breadth first paths
 /**
  breadth first paths
  */
-
+print("*****************breadth first paths begin******************")
 let breadthFirstPaths = BreadthFirstPaths(g: &g, s: 0)
 for i in 0..<g.getV() {
     print("0 has path to \(i) : \(breadthFirstPaths.hasPathsTo(i))")
@@ -76,14 +77,40 @@ var bPath = breadthFirstPaths.pathTo(5)
 while let empty = bPath.isEmpty(), !empty {
     print(bPath.pop())
 }
+print("*****************breadth first paths end******************")
 
 /**
     CC 查看图中连通分量
  */
 /// MARK: CC
+print("*****************CC begin******************")
 let cc = CC(&g)
 cc.showIds()
+print("*****************CC end******************")
 
+/**
+ 查看无向图中是否有环
+ */
+/// MARK: Cycle
+print("*****************Cycle begin******************")
+var g1 = Graph(13)
+g1.addEdge(0, 2)
+g1.addEdge(0, 1)
+g1.addEdge(0, 5)
+g1.addEdge(0, 6)
+g1.addEdge(3, 4)
+g1.addEdge(3, 5)
+g1.addEdge(4, 5)
+g1.addEdge(4, 6)
+g1.addEdge(7, 8)
+g1.addEdge(9, 10)
+g1.addEdge(9, 11)
+g1.addEdge(9, 12)
+g1.addEdge(11, 12)
+g1.show();
 
+var cycle = Cycle(g: &g1);
+print("g1 hasCycle: \(cycle.getHasCycle())")
+print("*****************Cycle end******************")
 
 print("end")
