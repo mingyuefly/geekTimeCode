@@ -64,7 +64,7 @@ public:
     }
     CC(Graph * g) {
         marked = new vector<bool>(g->getV(), false);
-        id = new vector<int>(g->getV());
+        id = new vector<int>(g->getV(), 0);
         for (int i = 0; i < g->getV(); i++) {
             if (marked->at(i) == false) {
                 dfs(g, i);
@@ -94,15 +94,20 @@ public:
 private:
     vector<bool> * marked;
     vector<int> * id;
-    int count;
+    int count = 0;
     void dfs(Graph * g, int v) {
         marked->at(v) = true;
         id->at(v) = count;
-        for (int i = 0; i < g->adj->at(v)->size(); i++) {
-            if (marked->at(g->adj->at(v)->at(i)) == false) {
-                dfs(g, g->adj->at(v)->at(i));
+        for (int i : *g->adj->at(v)) {
+            if (marked->at(i) == false) {
+                dfs(g, i);
             }
         }
+//        for (int i = 0; i < g->adj->at(v)->size(); i++) {
+//            if (marked->at(g->adj->at(v)->at(i)) == false) {
+//                dfs(g, g->adj->at(v)->at(i));
+//            }
+//        }
     }
 };
 

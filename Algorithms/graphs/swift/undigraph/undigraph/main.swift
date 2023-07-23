@@ -9,8 +9,8 @@ import Foundation
 
 print("Hello, World!")
 
-var g = Graph(6)
-//var g = Graph(8)
+//var g = Graph(6)
+var g = Graph(8)
 g.addEdge(0, 2)
 g.addEdge(0, 1)
 g.addEdge(0, 5)
@@ -19,7 +19,7 @@ g.addEdge(2, 3)
 g.addEdge(2, 4)
 g.addEdge(3, 4)
 g.addEdge(3, 5)
-//g.addEdge(7, 6)
+g.addEdge(7, 6)
 
 g.show()
 print(g.getV())
@@ -76,6 +76,14 @@ var bPath = breadthFirstPaths.pathTo(5)
 while let empty = bPath.isEmpty(), !empty {
     print(bPath.pop())
 }
+
+/**
+    CC 查看图中连通分量
+ */
+/// MARK: CC
+let cc = CC(&g)
+cc.showIds()
+
 
 
 print("end")

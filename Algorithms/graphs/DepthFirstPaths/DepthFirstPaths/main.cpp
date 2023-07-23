@@ -99,12 +99,18 @@ private:
     int s;
     void dfs(Graph * g, int v) {
         marked->at(v) = true;
-        for (int i = 0; i < g->adj->at(v)->size(); i++) {
-            if (marked->at(g->adj->at(v)->at(i)) == false) {
-                edgeTo->at(g->adj->at(v)->at(i)) = v;
-                dfs(g, g->adj->at(v)->at(i));
+        for (int i : *g->adj->at(v)) {
+            if (marked->at(i) == false) {
+                edgeTo->at(i) = v;
+                dfs(g, i);
             }
         }
+//        for (int i = 0; i < g->adj->at(v)->size(); i++) {
+//            if (marked->at(g->adj->at(v)->at(i)) == false) {
+//                edgeTo->at(g->adj->at(v)->at(i)) = v;
+//                dfs(g, g->adj->at(v)->at(i));
+//            }
+//        }
     }
 };
 
