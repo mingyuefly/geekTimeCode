@@ -85,11 +85,16 @@ private:
     vector<bool> * marked;
     void dfs(Digraph * g, int v) {
         marked->at(v) = true;
-        for (int w = 0; w < g->adj->at(v)->size(); w++) {
-            if (marked->at(g->adj->at(v)->at(w)) == false) {
-                dfs(g, g->adj->at(v)->at(w));
+        for(int w: *g->adj->at(v)) {
+            if (marked->at(w) == false) {
+                dfs(g, w);
             }
         }
+//        for (int w = 0; w < g->adj->at(v)->size(); w++) {
+//            if (marked->at(g->adj->at(v)->at(w)) == false) {
+//                dfs(g, g->adj->at(v)->at(w));
+//            }
+//        }
     }
 };
 
