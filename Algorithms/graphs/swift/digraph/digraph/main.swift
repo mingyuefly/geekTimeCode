@@ -90,5 +90,69 @@ if cycle.hasCycle() {
 
 print("******hasCycle end***************")
 
+/**
+ 拓扑排序
+ */
+/// MARK: Topological
+print("******Topological bengin***************")
+var topologicalG = Digraph(13)
+topologicalG.addEdge(0, 5)
+topologicalG.addEdge(0, 1)
+topologicalG.addEdge(0, 6)
+topologicalG.addEdge(2, 0)
+topologicalG.addEdge(2, 3)
+topologicalG.addEdge(3, 5)
+topologicalG.addEdge(5, 4)
+topologicalG.addEdge(6, 4)
+topologicalG.addEdge(7, 6)
+topologicalG.addEdge(8, 7)
+topologicalG.addEdge(6, 9)
+topologicalG.addEdge(9, 11)
+topologicalG.addEdge(9, 12)
+topologicalG.addEdge(9, 10)
+topologicalG.addEdge(11, 12)
+
+topologicalG.show()
+
+var dfo = DepthFirstOrder(g: &topologicalG)
+print("pre:")
+var pre = dfo.getPre()
+while !pre.isEmpty() {
+    if let v = pre.dequeue() {
+        print("\(v) ", terminator: "")
+    }
+}
+print("")
+print("post:")
+var post = dfo.getPost()
+while !post.isEmpty() {
+    if let v = post.dequeue() {
+        print("\(v) ", terminator: "")
+    }
+}
+print("")
+print("reversePost:")
+var reversePost = dfo.getReversePost()
+while let empty = reversePost.isEmpty(), !empty {
+    if let v = reversePost.pop() {
+        print("\(v) ", terminator: "")
+    }
+}
+print("")
+
+var topoLogical = Topological(g: &topologicalG)
+print("order:")
+if var order = topoLogical.getOrder() {
+    while let empty = order.isEmpty(), !empty {
+        if let v = order.pop() {
+            print("\(v) ", terminator: "")
+        }
+    }
+}
+print("")
+
+
+print("******Topological end***************")
+
 
 print("end")

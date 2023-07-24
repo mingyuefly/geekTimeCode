@@ -13,6 +13,8 @@
 		E7B337CE2A6E9470004397F8 /* DirectedCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337CD2A6E9470004397F8 /* DirectedCycle.swift */; };
 		E7B337D12A6E9510004397F8 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337CF2A6E9510004397F8 /* Stack.swift */; };
 		E7B337D22A6E9510004397F8 /* queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337D02A6E9510004397F8 /* queue.swift */; };
+		E7B337D42A6ED6BA004397F8 /* DepthFirstOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337D32A6ED6BA004397F8 /* DepthFirstOrder.swift */; };
+		E7B337D62A6EDC2C004397F8 /* Topological.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337D52A6EDC2C004397F8 /* Topological.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +37,8 @@
 		E7B337CD2A6E9470004397F8 /* DirectedCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectedCycle.swift; sourceTree = "<group>"; };
 		E7B337CF2A6E9510004397F8 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		E7B337D02A6E9510004397F8 /* queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = queue.swift; sourceTree = "<group>"; };
+		E7B337D32A6ED6BA004397F8 /* DepthFirstOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthFirstOrder.swift; sourceTree = "<group>"; };
+		E7B337D52A6EDC2C004397F8 /* Topological.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topological.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				E7B337C92A6E2F98004397F8 /* Digraph.swift */,
 				E7B337CB2A6E455D004397F8 /* DirectedDFS.swift */,
 				E7B337CD2A6E9470004397F8 /* DirectedCycle.swift */,
+				E7B337D32A6ED6BA004397F8 /* DepthFirstOrder.swift */,
+				E7B337D52A6EDC2C004397F8 /* Topological.swift */,
 				E7B337C22A6E2BDE004397F8 /* main.swift */,
 			);
 			path = digraph;
@@ -136,9 +142,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7B337CC2A6E455D004397F8 /* DirectedDFS.swift in Sources */,
+				E7B337D62A6EDC2C004397F8 /* Topological.swift in Sources */,
 				E7B337D12A6E9510004397F8 /* Stack.swift in Sources */,
 				E7B337C32A6E2BDE004397F8 /* main.swift in Sources */,
 				E7B337CE2A6E9470004397F8 /* DirectedCycle.swift in Sources */,
+				E7B337D42A6ED6BA004397F8 /* DepthFirstOrder.swift in Sources */,
 				E7B337CA2A6E2F98004397F8 /* Digraph.swift in Sources */,
 				E7B337D22A6E9510004397F8 /* queue.swift in Sources */,
 			);
