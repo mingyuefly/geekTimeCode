@@ -105,23 +105,39 @@ private:
     void dfs(Digraph * g, int v) {
         onStack->at(v) = true;
         marked->at(v) = true;
-        for (int w = 0; w < g->adj->at(v)->size(); w++) {
+        for (int w : *g->adj->at(v)) {
             if (hasCycle() == true) {
                 return;
-            }
-            if (marked->at(g->adj->at(v)->at(w)) == false) {
-                edgeTo->at(g->adj->at(v)->at(w)) = v;
-                dfs(g, g->adj->at(v)->at(w));
-            } else if (onStack->at(g->adj->at(v)->at(w)) == true) {
+            } else if (marked->at(w) == false) {
+                edgeTo->at(w) = v;
+                dfs(g, w);
+            } else if (onStack->at(w) == true) {
                 cycle = new stack<int>();
-                for (int x = v; x != g->adj->at(v)->at(w); x = edgeTo->at(x)) {
+                for (int x = v; x != w; x = edgeTo->at(x)) {
                     cycle->push(x);
                 }
-                cycle->push(g->adj->at(v)->at(w));
+                cycle->push(w);
                 cycle->push(v);
             }
         }
         onStack->at(v) = false;
+//        for (int w = 0; w < g->adj->at(v)->size(); w++) {
+//            if (hasCycle() == true) {
+//                return;
+//            }
+//            if (marked->at(g->adj->at(v)->at(w)) == false) {
+//                edgeTo->at(g->adj->at(v)->at(w)) = v;
+//                dfs(g, g->adj->at(v)->at(w));
+//            } else if (onStack->at(g->adj->at(v)->at(w)) == true) {
+//                cycle = new stack<int>();
+//                for (int x = v; x != g->adj->at(v)->at(w); x = edgeTo->at(x)) {
+//                    cycle->push(x);
+//                }
+//                cycle->push(g->adj->at(v)->at(w));
+//                cycle->push(v);
+//            }
+//        }
+//        onStack->at(v) = false;
     }
 };
 
@@ -173,13 +189,18 @@ private:
     void dfs(Digraph * g, int v) {
         pre->push(v);
         marked->at(v) = true;
-        for (int w = 0; w < g->adj->at(v)->size(); w++) {
-            if (marked->at(g->adj->at(v)->at(w)) == false) {
-                dfs(g, g->adj->at(v)->at(w));
+        for (int w : *g->adj->at(v)) {
+            if (marked->at(w) == false) {
+                dfs(g, w);
             }
         }
+//        for (int w = 0; w < g->adj->at(v)->size(); w++) {
+//            if (marked->at(g->adj->at(v)->at(w)) == false) {
+//                dfs(g, g->adj->at(v)->at(w));
+//            }
+//        }
         post->push(v);
-        reversePost->push(v);
+        reversePost->push(v); 
     }
 };
 

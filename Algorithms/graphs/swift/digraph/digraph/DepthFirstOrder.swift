@@ -8,7 +8,7 @@
 import Foundation
 
 class DepthFirstOrder {
-    private var marked: [Bool]
+    private var marked: [Bool] 
     private var pre: Queue<Int>
     private var post: Queue<Int>
     private var reversePost: Stack<Int>
@@ -27,6 +27,7 @@ class DepthFirstOrder {
         for v in 0..<g.getV() {
             if !self.marked[v] {
                 dfs(&g, v)
+                // 每一个dfs结束，说明所有和v连通的顶点都已经被搜索到了
             }
         }
     }
@@ -40,6 +41,7 @@ class DepthFirstOrder {
         }
         post.enqueue(v)
         reversePost.push(v)
+        // 每个子dfs方法结束，说明递归的一个子调用栈结束
     }
     func getPre() -> Queue<Int> {
         return pre

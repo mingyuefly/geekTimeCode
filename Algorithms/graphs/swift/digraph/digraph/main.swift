@@ -150,9 +150,40 @@ if var order = topoLogical.getOrder() {
     }
 }
 print("")
-
-
 print("******Topological end***************")
 
+/**
+ 计算强连通分量的Kosaraju算法
+ */
+/// MARK:Kosaraju
+print("*****************Kosaraju begin********************")
+var kosarajuG = Digraph(13)
+kosarajuG.addEdge(0, 5)
+kosarajuG.addEdge(0, 1)
+kosarajuG.addEdge(2, 0)
+kosarajuG.addEdge(2, 3)
+kosarajuG.addEdge(3, 2)
+kosarajuG.addEdge(3, 5)
+kosarajuG.addEdge(4, 3)
+kosarajuG.addEdge(5, 4)
+kosarajuG.addEdge(6, 4)
+kosarajuG.addEdge(6, 9)
+kosarajuG.addEdge(7, 6)
+kosarajuG.addEdge(7, 8)
+kosarajuG.addEdge(8, 7)
+kosarajuG.addEdge(8, 9)
+kosarajuG.addEdge(9, 10)
+kosarajuG.addEdge(9, 11)
+kosarajuG.addEdge(10, 12)
+kosarajuG.addEdge(11, 12)
+kosarajuG.addEdge(12, 9)
+
+kosarajuG.show()
+
+var kjscc = KosarajuSCC(&kosarajuG)
+kjscc.showIds()
+
+
+print("*****************Kosaraju end********************")
 
 print("end")

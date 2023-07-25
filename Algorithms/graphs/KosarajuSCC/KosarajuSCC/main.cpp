@@ -115,11 +115,16 @@ private:
     void dfs(Digraph * g, int v) {
         pre->push(v);
         marked->at(v) = true;
-        for (int w = 0; w < g->adj->at(v)->size(); w++) {
-            if (marked->at(g->adj->at(v)->at(w)) == false) {
-                dfs(g, g->adj->at(v)->at(w));
+        for (int w : *g->adj->at(v)) {
+            if (marked->at(w) == false) {
+                dfs(g, w);
             }
         }
+//        for (int w = 0; w < g->adj->at(v)->size(); w++) {
+//            if (marked->at(g->adj->at(v)->at(w)) == false) {
+//                dfs(g, g->adj->at(v)->at(w));
+//            }
+//        }
         post->push(v);
         reversePost->push(v);
     }
@@ -160,6 +165,11 @@ public:
     int getCount() {
         return count;
     }
+    void showIds() {
+        for (int i = 0; i < id->size(); i++) {
+            cout << "(" << i << ":" << id->at(i) << ")" << endl;
+        }
+    }
 private:
     vector<bool> * marked;
     vector<int> * id;
@@ -167,11 +177,16 @@ private:
     void dfs(Digraph * g, int v) {
         marked->at(v) = true;
         id->at(v) = count;
-        for (int w = 0; w < g->adj->at(v)->size(); w++) {
-            if (marked->at(g->adj->at(v)->at(w)) == false) {
-                dfs(g, g->adj->at(v)->at(w));
+        for (int w : *g->adj->at(v)) {
+            if (marked->at(w) == false) {
+                dfs(g, w);
             }
         }
+//        for (int w = 0; w < g->adj->at(v)->size(); w++) {
+//            if (marked->at(g->adj->at(v)->at(w)) == false) {
+//                dfs(g, g->adj->at(v)->at(w));
+//            }
+//        }
     }
 };
 
@@ -200,10 +215,11 @@ int main(int argc, const char * argv[]) {
     g->show();
     
     KosarajuSCC kjscc = KosarajuSCC(g);
-    for (int i = 0; i < kjscc.getId()->size(); i++) {
-        cout << kjscc.getId()->at(i) << " " << endl;
-    }
-    cout << endl;
+//    for (int i = 0; i < kjscc.getId()->size(); i++) {
+//        cout << kjscc.getId()->at(i) << " " << endl;
+//    }
+//    cout << endl;
+    kjscc.showIds();
     
     return 0;
 }

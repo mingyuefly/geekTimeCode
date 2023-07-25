@@ -12,7 +12,7 @@ class Topological {
     init(order: Stack<Int>? = nil) {
         self.order = order
     }
-    convenience init(g: inout Digraph) {
+    convenience init(g: inout Digraph) {      
         let cycleFinder = DirectedCycle(g: &g)
         if !cycleFinder.hasCycle() {
             let dfs = DepthFirstOrder(g: &g)
@@ -24,5 +24,8 @@ class Topological {
     }
     func getOrder() -> Stack<Int>? {
         return order
+    }
+    func isDAG() -> Bool {
+        return order != nil
     }
 }
