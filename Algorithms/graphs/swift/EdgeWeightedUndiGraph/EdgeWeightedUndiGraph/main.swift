@@ -28,3 +28,11 @@ g.addEdge(Edge(v: 6, w: 0, weight: 0.58))
 g.addEdge(Edge(v: 6, w: 4, weight: 0.93))
 
 g.show()
+
+var lMST = LazyPrimMST(g: &g)
+var edges = lMST.edges
+while !edges.isEmpty() {
+    if let e: Edge = edges.dequeue() {
+        print(e.toString())
+    }
+}

@@ -6,8 +6,15 @@
 //
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
+
+// to_string保留两位有效数字
+auto formatDobleValue(double val, int fixed) {
+    auto str = std::to_string(val);
+    return str.substr(0, str.find(".") + fixed + 1);
+}
 
 // 分割字符串
 vector<string> split(string s, char delim) {

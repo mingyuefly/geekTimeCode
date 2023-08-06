@@ -24,8 +24,8 @@ struct EdgeWeightedUndiGraph {
         self.init(V: V, E: 0, edges: edges, adj: adj)
     }
     mutating func addEdge(_ e: Edge) {
-        var v = e.getEither()
-        var w = e.getOther(v)
+        let v = e.getEither()
+        let w = e.getOther(v)
         adj[v].append(e)
         adj[w].append(e)
         E += 1

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04F72FAA2A7F9937009FF36A /* queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F72FA82A7F9937009FF36A /* queue.swift */; };
+		04F72FAB2A7F9937009FF36A /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F72FA92A7F9937009FF36A /* Stack.swift */; };
+		04F72FAD2A7F99B0009FF36A /* LazyPrimMST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F72FAC2A7F99B0009FF36A /* LazyPrimMST.swift */; };
+		04F72FAF2A7F9D0F009FF36A /* MinPQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F72FAE2A7F9D0F009FF36A /* MinPQ.swift */; };
+		04F72FB12A7F9D3A009FF36A /* ComparableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F72FB02A7F9D3A009FF36A /* ComparableObject.swift */; };
 		E7B337E72A7164C5004397F8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337E62A7164C5004397F8 /* main.swift */; };
 		E7B337EE2A7164DB004397F8 /* EdgeWeightedUndiGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337ED2A7164DB004397F8 /* EdgeWeightedUndiGraph.swift */; };
 		E7B337F02A716A27004397F8 /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337EF2A716A27004397F8 /* Edge.swift */; };
@@ -25,6 +30,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04F72FA82A7F9937009FF36A /* queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = queue.swift; sourceTree = "<group>"; };
+		04F72FA92A7F9937009FF36A /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		04F72FAC2A7F99B0009FF36A /* LazyPrimMST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyPrimMST.swift; sourceTree = "<group>"; };
+		04F72FAE2A7F9D0F009FF36A /* MinPQ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinPQ.swift; sourceTree = "<group>"; };
+		04F72FB02A7F9D3A009FF36A /* ComparableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparableObject.swift; sourceTree = "<group>"; };
 		E7B337E32A7164C5004397F8 /* EdgeWeightedUndiGraph */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EdgeWeightedUndiGraph; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B337E62A7164C5004397F8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E7B337ED2A7164DB004397F8 /* EdgeWeightedUndiGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeWeightedUndiGraph.swift; sourceTree = "<group>"; };
@@ -61,8 +71,13 @@
 		E7B337E52A7164C5004397F8 /* EdgeWeightedUndiGraph */ = {
 			isa = PBXGroup;
 			children = (
+				04F72FA82A7F9937009FF36A /* queue.swift */,
+				04F72FA92A7F9937009FF36A /* Stack.swift */,
+				04F72FB02A7F9D3A009FF36A /* ComparableObject.swift */,
+				04F72FAE2A7F9D0F009FF36A /* MinPQ.swift */,
 				E7B337EF2A716A27004397F8 /* Edge.swift */,
 				E7B337ED2A7164DB004397F8 /* EdgeWeightedUndiGraph.swift */,
+				04F72FAC2A7F99B0009FF36A /* LazyPrimMST.swift */,
 				E7B337E62A7164C5004397F8 /* main.swift */,
 			);
 			path = EdgeWeightedUndiGraph;
@@ -127,8 +142,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7B337EE2A7164DB004397F8 /* EdgeWeightedUndiGraph.swift in Sources */,
+				04F72FAB2A7F9937009FF36A /* Stack.swift in Sources */,
+				04F72FAD2A7F99B0009FF36A /* LazyPrimMST.swift in Sources */,
+				04F72FAF2A7F9D0F009FF36A /* MinPQ.swift in Sources */,
 				E7B337E72A7164C5004397F8 /* main.swift in Sources */,
 				E7B337F02A716A27004397F8 /* Edge.swift in Sources */,
+				04F72FB12A7F9D3A009FF36A /* ComparableObject.swift in Sources */,
+				04F72FAA2A7F9937009FF36A /* queue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +272,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -261,6 +282,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
