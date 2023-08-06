@@ -7,19 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E7B337C32A6E2BDE004397F8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337C22A6E2BDE004397F8 /* main.swift */; };
-		E7B337CA2A6E2F98004397F8 /* Digraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337C92A6E2F98004397F8 /* Digraph.swift */; };
-		E7B337CC2A6E455D004397F8 /* DirectedDFS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337CB2A6E455D004397F8 /* DirectedDFS.swift */; };
-		E7B337CE2A6E9470004397F8 /* DirectedCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337CD2A6E9470004397F8 /* DirectedCycle.swift */; };
-		E7B337D12A6E9510004397F8 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337CF2A6E9510004397F8 /* Stack.swift */; };
-		E7B337D22A6E9510004397F8 /* queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337D02A6E9510004397F8 /* queue.swift */; };
-		E7B337D42A6ED6BA004397F8 /* DepthFirstOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337D32A6ED6BA004397F8 /* DepthFirstOrder.swift */; };
-		E7B337D62A6EDC2C004397F8 /* Topological.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337D52A6EDC2C004397F8 /* Topological.swift */; };
-		E7B337D92A6FD7F0004397F8 /* KosarajuSCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337D82A6FD7F0004397F8 /* KosarajuSCC.swift */; };
+		E7B337E72A7164C5004397F8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337E62A7164C5004397F8 /* main.swift */; };
+		E7B337EE2A7164DB004397F8 /* EdgeWeightedUndiGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337ED2A7164DB004397F8 /* EdgeWeightedUndiGraph.swift */; };
+		E7B337F02A716A27004397F8 /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B337EF2A716A27004397F8 /* Edge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E7B337BD2A6E2BDE004397F8 /* CopyFiles */ = {
+		E7B337E12A7164C5004397F8 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -31,21 +25,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E7B337BF2A6E2BDE004397F8 /* digraph */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = digraph; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7B337C22A6E2BDE004397F8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		E7B337C92A6E2F98004397F8 /* Digraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digraph.swift; sourceTree = "<group>"; };
-		E7B337CB2A6E455D004397F8 /* DirectedDFS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectedDFS.swift; sourceTree = "<group>"; };
-		E7B337CD2A6E9470004397F8 /* DirectedCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectedCycle.swift; sourceTree = "<group>"; };
-		E7B337CF2A6E9510004397F8 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
-		E7B337D02A6E9510004397F8 /* queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = queue.swift; sourceTree = "<group>"; };
-		E7B337D32A6ED6BA004397F8 /* DepthFirstOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthFirstOrder.swift; sourceTree = "<group>"; };
-		E7B337D52A6EDC2C004397F8 /* Topological.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topological.swift; sourceTree = "<group>"; };
-		E7B337D72A6FCAA9004397F8 /* toplogical.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = toplogical.jpeg; sourceTree = "<group>"; };
-		E7B337D82A6FD7F0004397F8 /* KosarajuSCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KosarajuSCC.swift; sourceTree = "<group>"; };
+		E7B337E32A7164C5004397F8 /* EdgeWeightedUndiGraph */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EdgeWeightedUndiGraph; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7B337E62A7164C5004397F8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		E7B337ED2A7164DB004397F8 /* EdgeWeightedUndiGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeWeightedUndiGraph.swift; sourceTree = "<group>"; };
+		E7B337EF2A716A27004397F8 /* Edge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E7B337BC2A6E2BDE004397F8 /* Frameworks */ = {
+		E7B337E02A7164C5004397F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -55,75 +42,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E7B337B62A6E2BDD004397F8 = {
+		E7B337DA2A7164C5004397F8 = {
 			isa = PBXGroup;
 			children = (
-				E7B337C12A6E2BDE004397F8 /* digraph */,
-				E7B337C02A6E2BDE004397F8 /* Products */,
+				E7B337E52A7164C5004397F8 /* EdgeWeightedUndiGraph */,
+				E7B337E42A7164C5004397F8 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E7B337C02A6E2BDE004397F8 /* Products */ = {
+		E7B337E42A7164C5004397F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E7B337BF2A6E2BDE004397F8 /* digraph */,
+				E7B337E32A7164C5004397F8 /* EdgeWeightedUndiGraph */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E7B337C12A6E2BDE004397F8 /* digraph */ = {
+		E7B337E52A7164C5004397F8 /* EdgeWeightedUndiGraph */ = {
 			isa = PBXGroup;
 			children = (
-				E7B337D02A6E9510004397F8 /* queue.swift */,
-				E7B337CF2A6E9510004397F8 /* Stack.swift */,
-				E7B337C92A6E2F98004397F8 /* Digraph.swift */,
-				E7B337CB2A6E455D004397F8 /* DirectedDFS.swift */,
-				E7B337CD2A6E9470004397F8 /* DirectedCycle.swift */,
-				E7B337D32A6ED6BA004397F8 /* DepthFirstOrder.swift */,
-				E7B337D52A6EDC2C004397F8 /* Topological.swift */,
-				E7B337D72A6FCAA9004397F8 /* toplogical.jpeg */,
-				E7B337D82A6FD7F0004397F8 /* KosarajuSCC.swift */,
-				E7B337C22A6E2BDE004397F8 /* main.swift */,
+				E7B337EF2A716A27004397F8 /* Edge.swift */,
+				E7B337ED2A7164DB004397F8 /* EdgeWeightedUndiGraph.swift */,
+				E7B337E62A7164C5004397F8 /* main.swift */,
 			);
-			path = digraph;
+			path = EdgeWeightedUndiGraph;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E7B337BE2A6E2BDE004397F8 /* digraph */ = {
+		E7B337E22A7164C5004397F8 /* EdgeWeightedUndiGraph */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E7B337C62A6E2BDE004397F8 /* Build configuration list for PBXNativeTarget "digraph" */;
+			buildConfigurationList = E7B337EA2A7164C5004397F8 /* Build configuration list for PBXNativeTarget "EdgeWeightedUndiGraph" */;
 			buildPhases = (
-				E7B337BB2A6E2BDE004397F8 /* Sources */,
-				E7B337BC2A6E2BDE004397F8 /* Frameworks */,
-				E7B337BD2A6E2BDE004397F8 /* CopyFiles */,
+				E7B337DF2A7164C5004397F8 /* Sources */,
+				E7B337E02A7164C5004397F8 /* Frameworks */,
+				E7B337E12A7164C5004397F8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = digraph;
-			productName = digraph;
-			productReference = E7B337BF2A6E2BDE004397F8 /* digraph */;
+			name = EdgeWeightedUndiGraph;
+			productName = EdgeWeightedUndiGraph;
+			productReference = E7B337E32A7164C5004397F8 /* EdgeWeightedUndiGraph */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E7B337B72A6E2BDD004397F8 /* Project object */ = {
+		E7B337DB2A7164C5004397F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					E7B337BE2A6E2BDE004397F8 = {
+					E7B337E22A7164C5004397F8 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
 			};
-			buildConfigurationList = E7B337BA2A6E2BDD004397F8 /* Build configuration list for PBXProject "digraph" */;
+			buildConfigurationList = E7B337DE2A7164C5004397F8 /* Build configuration list for PBXProject "EdgeWeightedUndiGraph" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -131,37 +111,31 @@
 				en,
 				Base,
 			);
-			mainGroup = E7B337B62A6E2BDD004397F8;
-			productRefGroup = E7B337C02A6E2BDE004397F8 /* Products */;
+			mainGroup = E7B337DA2A7164C5004397F8;
+			productRefGroup = E7B337E42A7164C5004397F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E7B337BE2A6E2BDE004397F8 /* digraph */,
+				E7B337E22A7164C5004397F8 /* EdgeWeightedUndiGraph */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E7B337BB2A6E2BDE004397F8 /* Sources */ = {
+		E7B337DF2A7164C5004397F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7B337CC2A6E455D004397F8 /* DirectedDFS.swift in Sources */,
-				E7B337D62A6EDC2C004397F8 /* Topological.swift in Sources */,
-				E7B337D12A6E9510004397F8 /* Stack.swift in Sources */,
-				E7B337C32A6E2BDE004397F8 /* main.swift in Sources */,
-				E7B337D92A6FD7F0004397F8 /* KosarajuSCC.swift in Sources */,
-				E7B337CE2A6E9470004397F8 /* DirectedCycle.swift in Sources */,
-				E7B337D42A6ED6BA004397F8 /* DepthFirstOrder.swift in Sources */,
-				E7B337CA2A6E2F98004397F8 /* Digraph.swift in Sources */,
-				E7B337D22A6E9510004397F8 /* queue.swift in Sources */,
+				E7B337EE2A7164DB004397F8 /* EdgeWeightedUndiGraph.swift in Sources */,
+				E7B337E72A7164C5004397F8 /* main.swift in Sources */,
+				E7B337F02A716A27004397F8 /* Edge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		E7B337C42A6E2BDE004397F8 /* Debug */ = {
+		E7B337E82A7164C5004397F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -221,7 +195,7 @@
 			};
 			name = Debug;
 		};
-		E7B337C52A6E2BDE004397F8 /* Release */ = {
+		E7B337E92A7164C5004397F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -274,7 +248,7 @@
 			};
 			name = Release;
 		};
-		E7B337C72A6E2BDE004397F8 /* Debug */ = {
+		E7B337EB2A7164C5004397F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -283,7 +257,7 @@
 			};
 			name = Debug;
 		};
-		E7B337C82A6E2BDE004397F8 /* Release */ = {
+		E7B337EC2A7164C5004397F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -295,25 +269,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E7B337BA2A6E2BDD004397F8 /* Build configuration list for PBXProject "digraph" */ = {
+		E7B337DE2A7164C5004397F8 /* Build configuration list for PBXProject "EdgeWeightedUndiGraph" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E7B337C42A6E2BDE004397F8 /* Debug */,
-				E7B337C52A6E2BDE004397F8 /* Release */,
+				E7B337E82A7164C5004397F8 /* Debug */,
+				E7B337E92A7164C5004397F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E7B337C62A6E2BDE004397F8 /* Build configuration list for PBXNativeTarget "digraph" */ = {
+		E7B337EA2A7164C5004397F8 /* Build configuration list for PBXNativeTarget "EdgeWeightedUndiGraph" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E7B337C72A6E2BDE004397F8 /* Debug */,
-				E7B337C82A6E2BDE004397F8 /* Release */,
+				E7B337EB2A7164C5004397F8 /* Debug */,
+				E7B337EC2A7164C5004397F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E7B337B72A6E2BDD004397F8 /* Project object */;
+	rootObject = E7B337DB2A7164C5004397F8 /* Project object */;
 }
