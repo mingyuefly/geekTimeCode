@@ -45,6 +45,17 @@ string reverseString(string &str) {
     return str1;
 }
 
+// 字符串包含子字符串个数
+int subStringCount(string str, string subStr) {
+    int count = 0;
+    size_t index = 0;
+    while ((index = str.find(subStr, index)) < str.length()) {
+        count++;
+        index++;
+    }
+    return count;
+}
+
 int main(int argc, const char * argv[]) {
     
     vector<string> strings = split("hello world", ' '); 
