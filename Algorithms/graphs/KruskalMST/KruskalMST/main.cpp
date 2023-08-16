@@ -12,6 +12,12 @@
 
 using namespace std;
 
+// 浮点型转字符串小数点后保留fixed位有效数字
+auto formatDobleValue(double val, int fixed) {
+    auto str = to_string(val);
+    return str.substr(0, str.find(".") + fixed + 1);
+}
+
 class UF {
 public:
     UF() {
@@ -99,7 +105,7 @@ public:
         }
     }
     string toString() {
-        return to_string(this->v) + "-" + to_string(this->w) + " " + to_string(this->weight);
+        return to_string(this->v) + "-" + to_string(this->w) + " " + formatDobleValue(this->weight, 2);
     }
 private:
     int v;
