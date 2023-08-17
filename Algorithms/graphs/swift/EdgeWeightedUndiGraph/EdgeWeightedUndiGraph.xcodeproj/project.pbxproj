@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04AAD37B2A8BD5BA00EF5330 /* KruskalMST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAD37A2A8BD5BA00EF5330 /* KruskalMST.swift */; };
+		04AAD3942A8D281800EF5330 /* UF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAD3932A8D281800EF5330 /* UF.swift */; };
 		04F72FAA2A7F9937009FF36A /* queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F72FA82A7F9937009FF36A /* queue.swift */; };
 		04F72FAB2A7F9937009FF36A /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F72FA92A7F9937009FF36A /* Stack.swift */; };
 		04F72FAD2A7F99B0009FF36A /* LazyPrimMST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F72FAC2A7F99B0009FF36A /* LazyPrimMST.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		04AAD37A2A8BD5BA00EF5330 /* KruskalMST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KruskalMST.swift; sourceTree = "<group>"; };
+		04AAD3932A8D281800EF5330 /* UF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UF.swift; sourceTree = "<group>"; };
 		04F72FA82A7F9937009FF36A /* queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = queue.swift; sourceTree = "<group>"; };
 		04F72FA92A7F9937009FF36A /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		04F72FAC2A7F99B0009FF36A /* LazyPrimMST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyPrimMST.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				04F72FAC2A7F99B0009FF36A /* LazyPrimMST.swift */,
 				E78C8EAF2A8906E8009FC40D /* IndexMinPQ.swift */,
 				E78C8EAB2A88EB79009FC40D /* PrimMST.swift */,
+				04AAD3932A8D281800EF5330 /* UF.swift */,
 				04AAD37A2A8BD5BA00EF5330 /* KruskalMST.swift */,
 				E7B337E62A7164C5004397F8 /* main.swift */,
 			);
@@ -152,6 +155,7 @@
 			files = (
 				E7B337EE2A7164DB004397F8 /* EdgeWeightedUndiGraph.swift in Sources */,
 				04F72FAB2A7F9937009FF36A /* Stack.swift in Sources */,
+				04AAD3942A8D281800EF5330 /* UF.swift in Sources */,
 				E78C8EAC2A88EB79009FC40D /* PrimMST.swift in Sources */,
 				04F72FAD2A7F99B0009FF36A /* LazyPrimMST.swift in Sources */,
 				04F72FAF2A7F9D0F009FF36A /* MinPQ.swift in Sources */,

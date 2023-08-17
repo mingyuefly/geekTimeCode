@@ -39,5 +39,14 @@ g.show()
 //}
 
 // 实时 primMST
-var MST = PrimMST(g: &g)
-MST.show()
+//var MST = PrimMST(g: &g)
+//MST.show()
+
+// KruskalMST
+let kMST = KruskalMST(g: &g)
+var edges = kMST.edges()
+while !edges.isEmpty() {
+    if let e: Edge = edges.dequeue() {
+        print(e.toString())
+    }
+}
