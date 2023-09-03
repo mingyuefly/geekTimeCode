@@ -18,6 +18,8 @@
 		04AAD3B92A9B47B900EF5330 /* Topological.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAD3B72A9B47B900EF5330 /* Topological.swift */; };
 		04AAD3BB2A9B480600EF5330 /* DepthFirstOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAD3BA2A9B480600EF5330 /* DepthFirstOrder.swift */; };
 		04AAD3BD2A9B492800EF5330 /* queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAD3BC2A9B492800EF5330 /* queue.swift */; };
+		04AAD3C12A9F96F400EF5330 /* BellmanForSP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAD3C02A9F96F400EF5330 /* BellmanForSP.swift */; };
+		04AAD3C32A9F9E8100EF5330 /* EdgeWeightedDirectedCycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAD3C22A9F9E8100EF5330 /* EdgeWeightedDirectedCycle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +47,8 @@
 		04AAD3B72A9B47B900EF5330 /* Topological.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topological.swift; sourceTree = "<group>"; };
 		04AAD3BA2A9B480600EF5330 /* DepthFirstOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepthFirstOrder.swift; sourceTree = "<group>"; };
 		04AAD3BC2A9B492800EF5330 /* queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = queue.swift; sourceTree = "<group>"; };
+		04AAD3C02A9F96F400EF5330 /* BellmanForSP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellmanForSP.swift; sourceTree = "<group>"; };
+		04AAD3C22A9F9E8100EF5330 /* EdgeWeightedDirectedCycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeWeightedDirectedCycle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				04AAD3B62A9B47B900EF5330 /* DirectedCycle.swift */,
 				04AAD3B72A9B47B900EF5330 /* Topological.swift */,
 				04AAD3B22A9B434600EF5330 /* AcyclicSP.swift */,
+				04AAD3C22A9F9E8100EF5330 /* EdgeWeightedDirectedCycle.swift */,
+				04AAD3C02A9F96F400EF5330 /* BellmanForSP.swift */,
 				04AAD3A12A8E783100EF5330 /* main.swift */,
 			);
 			path = EdgeWeightedDiGraph;
@@ -156,11 +162,13 @@
 				04AAD3B82A9B47B900EF5330 /* DirectedCycle.swift in Sources */,
 				04AAD3B52A9B478600EF5330 /* Stack.swift in Sources */,
 				04AAD3AD2A921D5A00EF5330 /* DijkstraSP.swift in Sources */,
+				04AAD3C12A9F96F400EF5330 /* BellmanForSP.swift in Sources */,
 				04AAD3B12A9223C700EF5330 /* IndexMinPQ.swift in Sources */,
 				04AAD3A22A8E783100EF5330 /* main.swift in Sources */,
 				04AAD3BD2A9B492800EF5330 /* queue.swift in Sources */,
 				04AAD3B32A9B434600EF5330 /* AcyclicSP.swift in Sources */,
 				04AAD3BB2A9B480600EF5330 /* DepthFirstOrder.swift in Sources */,
+				04AAD3C32A9F9E8100EF5330 /* EdgeWeightedDirectedCycle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
