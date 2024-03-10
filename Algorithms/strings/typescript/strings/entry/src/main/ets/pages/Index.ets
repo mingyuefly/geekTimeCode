@@ -1,5 +1,5 @@
 import {LSD} from './strings/LSD'
-
+import {MSD} from './strings/MSD'
 
 @Entry
 @Component
@@ -8,7 +8,9 @@ struct Index {
 
   aboutToAppear(): void {
     // test algorithms
-    this.lsdTest()
+    // this.lsdTest()
+
+    this.msdTest()
   }
 
   lsdTest() {
@@ -51,6 +53,49 @@ struct Index {
 
     strings.forEach((s, index) => {
         console.log(s)
+    })
+  }
+
+  msdTest() {
+    let s1 = "she";
+    let s2 = "sells";
+    let s3 = "seashells";
+    let s4 = "by";
+    let s5 = "the";
+    let s6 = "seashore";
+    let s7 = "the";
+    let s8 = "shells";
+    let s9 = "she";
+    let s10 = "sells";
+    let s11 = "are";
+    let s12 = "surely";
+    let s13 = "seashells";
+
+    let a: Array<string> = new Array<string>;
+    a.push(s1);
+    a.push(s2);
+    a.push(s3);
+    a.push(s4);
+    a.push(s5);
+    a.push(s6);
+    a.push(s7);
+    a.push(s8);
+    a.push(s9);
+    a.push(s10);
+    a.push(s11);
+    a.push(s12);
+    a.push(s13);
+
+    a.forEach((s, index) => {
+      console.log(s);
+    })
+
+    console.log("******");
+
+    MSD.sorts(a);
+
+    a.forEach((s, index) => {
+      console.log(s)
     })
   }
 

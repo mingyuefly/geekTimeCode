@@ -19,9 +19,9 @@ public:
         int R = 256;
         vector<string> aux = vector<string>(N);
         for (int d = W - 1; d >= 0; d--) {
-            vector<int> count = vector<int>(R+1);
+            vector<int> count = vector<int>(R+1); // C++ 默认初始化元素是0
             for (int i = 0; i < N; i++) {
-                count.at(a->at(i).at(d) + 1)++;
+                count.at(a->at(i).at(d) + 1)++; // C++ 字符串获取到指定索引的字符可以直接转换为字母表int值进行算术操作，脱胎于C语言
             }
             for (int r = 0; r < R; r++) {
                 count.at(r+1)+=count.at(r);

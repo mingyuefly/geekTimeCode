@@ -22,7 +22,7 @@ public:
     }
 private:
     int R = 256;
-    int M = 15;
+    int M = 3;
     vector<string> * aux;
     int charAt(string s, int d) {
         if (d < s.size()) {
@@ -50,12 +50,12 @@ private:
             a->at(i) = aux->at(i - lo);
         }
         for (int r = 0; r < R; r++) {
-            sort(a, lo + count.at(r), lo + count.at(r + 1), d + 1);
+            sort(a, lo + count.at(r), lo + count.at(r + 1) - 1, d + 1);
         }
     }
     void insertion(vector<string> * a, int lo, int hi, int d) {
-        for (int i = lo; i <= hi; i++) {
-            for (int j = i; j > lo && less(a->at(j), a->at(j - 1), d); j--) {
+        for (int i = lo + 1; i <= hi; i++) {
+            for (int j = i; j > lo && less(a->at(j), a->at(j - 1)); j--) {
                 exch(a, j, j - 1);
             }
         }
@@ -65,7 +65,7 @@ private:
         a->at(i) = a->at(j);
         a->at(j) = tmp;
     }
-    bool less(string v, string w, int d) {
+    bool less(string v, string w) {
         for (int i = 0; i < min(v.size(), w.size()); i++) {
             if (v.at(i) < w.at(i)) {
                 return true;
