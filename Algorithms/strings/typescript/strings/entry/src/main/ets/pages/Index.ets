@@ -1,5 +1,6 @@
 import {LSD} from './strings/LSD'
 import {MSD} from './strings/MSD'
+import {Quick3String} from './strings/Quick3String'
 
 @Entry
 @Component
@@ -10,7 +11,9 @@ struct Index {
     // test algorithms
     // this.lsdTest()
 
-    this.msdTest()
+    // this.msdTest()
+
+    this.quick3stringTest();
   }
 
   lsdTest() {
@@ -93,6 +96,47 @@ struct Index {
     console.log("******");
 
     MSD.sorts(a);
+
+    a.forEach((s, index) => {
+      console.log(s)
+    })
+  }
+
+  quick3stringTest() {
+    let a: Array<string> = new Array<string>();
+    let s1 = "edu.princeton.cs";
+    let s2 = "com.apple";
+    let s3 = "edu.princeton.cs";
+    let s4 = "com.cnn";
+    let s5 = "com.google";
+    let s6 = "edu.uva.cs";
+    let s7 = "edu.princeton.cs";
+    let s8 = "edu.princeton.cs.www";
+    let s9 = "edu.uva.cs";
+    let s10 = "edu.uva.cs";
+    let s11 = "edu.uva.cs";
+    let s12 = "com.adobe";
+    let s13 = "edu.princeton.ee";
+    a.push(s1);
+    a.push(s2);
+    a.push(s3);
+    a.push(s4);
+    a.push(s5);
+    a.push(s6);
+    a.push(s7);
+    a.push(s8);
+    a.push(s9);
+    a.push(s10);
+    a.push(s11);
+    a.push(s12);
+    a.push(s13);
+    a.forEach((s, index) => {
+      console.log(s);
+    })
+
+    console.log("******");
+
+    Quick3String.sorts(a);
 
     a.forEach((s, index) => {
       console.log(s)
