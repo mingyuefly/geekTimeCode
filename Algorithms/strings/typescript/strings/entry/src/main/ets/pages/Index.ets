@@ -1,6 +1,7 @@
 import {LSD} from './strings/LSD'
 import {MSD} from './strings/MSD'
-import {Quick3String} from './strings/Quick3String'
+import {Quick3String} from './strings/Quick3String';
+import {TrieST} from './strings/TrieST';
 
 @Entry
 @Component
@@ -13,7 +14,9 @@ struct Index {
 
     // this.msdTest()
 
-    this.quick3stringTest();
+    // this.quick3stringTest();
+
+    this.trieTest();
   }
 
   lsdTest() {
@@ -141,6 +144,25 @@ struct Index {
     a.forEach((s, index) => {
       console.log(s)
     })
+  }
+
+  trieTest() {
+    let trie = new TrieST();
+    trie.put("are", 12);
+    trie.put("shell", 13);
+    trie.put("string", 45);
+
+    let a = trie.get("are");
+    console.log("a = " + a);
+
+    let b = trie.get("shell");
+    console.log("b = " + b);
+
+    let c = trie.get("string");
+    console.log("c = " + c);
+
+    let d = trie.get("shells");
+    console.log("d = " + d);
   }
 
   build() {
