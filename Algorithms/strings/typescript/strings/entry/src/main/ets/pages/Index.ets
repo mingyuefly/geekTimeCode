@@ -58,7 +58,7 @@ struct Index {
     LSD.sorts(strings, 7)
 
     strings.forEach((s, index) => {
-        console.log(s)
+      console.log(s)
     })
   }
 
@@ -77,7 +77,7 @@ struct Index {
     let s12 = "surely";
     let s13 = "seashells";
 
-    let a: Array<string> = new Array<string>;
+    let a: Array<string> = new Array<string>();
     a.push(s1);
     a.push(s2);
     a.push(s3);
@@ -166,14 +166,20 @@ struct Index {
   }
 
   build() {
-    Row() {
-      Column() {
-        Text(this.message)
-          .fontSize(50)
-          .fontWeight(FontWeight.Bold)
-      }
-      .width('100%')
+    RelativeContainer() {
+      Text(this.message)
+        .id('HelloWorld')
+        .fontSize($r('app.float.page_text_font_size'))
+        .fontWeight(FontWeight.Bold)
+        .alignRules({
+          center: { anchor: '__container__', align: VerticalAlign.Center },
+          middle: { anchor: '__container__', align: HorizontalAlign.Center }
+        })
+        .onClick(() => {
+          this.message = 'Welcome';
+        })
     }
     .height('100%')
+    .width('100%')
   }
 }
